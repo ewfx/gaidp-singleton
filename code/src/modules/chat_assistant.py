@@ -94,10 +94,11 @@ def chat_ui(extracted_rules_json, violated_rules_json):
         You are an expert in financial compliance.
         **User Input:** {query}
 
-        If the input is about a compliance issue, provide:
-        - Explanation of the issue
+        If the input is about a compliance issue or about the violations that happened , provide:
+        - Explanation of the issue by mentioning which row and column and what issue
         - Suggested fix (if applicable)
         - Compliance recommendation
+        from this information in {retrieved_text}
 
         If it's a rule refinement request, suggest modifications to:
         {json.dumps(extracted_rules_json, indent=2)}

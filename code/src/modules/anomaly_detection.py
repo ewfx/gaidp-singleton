@@ -6,7 +6,7 @@ import plotly.express as px
 from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from sklearn.ensemble import IsolationForest
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import numpy as np
 import google.generativeai as genai
 
@@ -22,8 +22,39 @@ def load_data():
     return None
 
 
+def estimate_contamination(df):
+    """Dynamically estimates contamination percentage based on multiple anomaly detection methods."""
+
+    numeric_df = df.select_dtypes(include=[np.number])  # Keep only numerical features
+    scaler = MinMaxScaler()
+    normalized_data = scaler.fit_transform(numeric_df)
+
+    # First pass - Train Isolation Forest with a higher contamination rate
+    model = IsolationForest(contamination=0.1, random_state=42)
+    model.fit(normalized_data)
+
+    # Get anomaly scores
+    scores = model.decision_function(normalized_data)
+
+    # Z-Score Method (Identify outliers beyond 2 standard deviations)
+    mean_score = np.mean(scores)
+    std_dev = np.std(scores)
+    threshold = mean_score - (2 * std_dev)  # Anything below this is an outlier
+    num_anomalies_z = np.sum(scores < threshold)
+
+    # Top 2% Outliers Approach
+    percentile_cutoff = np.percentile(scores, 2)  # Lower 2% considered anomalies
+    num_anomalies_percentile = np.sum(scores < percentile_cutoff)
+
+    # Compute dynamic contamination rate (take the higher estimate)
+    estimated_contamination = max(num_anomalies_z, num_anomalies_percentile) / len(df)
+
+    # Ensure contamination is between 0.01 and 0.15
+    estimated_contamination = max(0.01, min(estimated_contamination, 0.15))
+
+    return round(estimated_contamination, 4)  # Rounded for better readability
 # Perform anomaly detection using Isolation Forest
-def detect_anomalies(df, contamination):
+def detect_anomalies(df):
     # Drop non-numeric columns
     numeric_df = df.select_dtypes(include=[np.number])
 
@@ -34,11 +65,13 @@ def detect_anomalies(df, contamination):
         return df
 
     # Normalize data
-    scaler = StandardScaler()
+    scaler = MinMaxScaler()
     normalized_data = scaler.fit_transform(numeric_df)
 
+    contamination_value = estimate_contamination(df)
+    st.write(f"📊 **Auto-detected contamination level:** {contamination_value:.4f}")
     # Train Isolation Forest
-    model = IsolationForest(n_estimators=200, contamination=contamination, random_state=42)
+    model = IsolationForest(n_estimators=200, contamination=contamination_value, random_state=42)
     predictions = model.fit_predict(normalized_data)
 
     # Add results to dataframe
@@ -110,10 +143,10 @@ def main():
         st.write("### Preview of Dataset")
         st.dataframe(df.head())
 
-        contamination = st.slider("Set Contamination (Anomaly Percentage)", 0.005, 0.1, 0.02, 0.005)
+        # contamination = st.slider("Set Contamination (Anomaly Percentage)", 0.005, 0.1, 0.02, 0.005)
 
         if st.button("Run Anomaly Detection"):
-            df = detect_anomalies(df, contamination)
+            df = detect_anomalies(df)
 
             st.write("### Anomaly Detection Results")
             st.dataframe(df)
@@ -127,7 +160,15 @@ def main():
                                      labels={"color": "Anomaly"},
                                      color_discrete_map={"Normal": "blue", "Anomaly": "red"})  # 🔴
                     st.plotly_chart(fig)
-                    anomalies = df[df["Anomaly_Score"] == -1]
+                    # Detect anomalies
+                    anomalies = df[df["Anomaly_Score"] == -1].copy()
+
+                    # Preserve original row numbers
+                    anomalies["Original_Row_No"] = anomalies.index  # Store original index as row_no
+
+                    # Reset index for clean visualization (optional, but keep "Original_Row_No")
+                    anomalies.reset_index(drop=True, inplace=True)
+                    st.dataframe(anomalies)
                     anomaly_explanations = generate_anomaly_explanations(anomalies)
 
                     # Structured expander for explanations
