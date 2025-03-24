@@ -1,0 +1,627 @@
+[
+    {
+        "rule_id": "R1",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R6",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R7",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "DebtToIncomeRatio",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "MaturityDate and OriginationDate should be in YYYY-MM-DDTHH:MM:SS format.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Value must match the pattern ^\\d{4}-\\d{2}-\\d{2}T00:00:00$",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
+        "applicable_columns": [],
+        "severity": "High",
+        "condition": "Data must be in XML format without quotation marks and no header row or row count.",
+        "expected_data_type": null
+    },
+    {
+        "rule_id": "R2",
+        "description": "For fields that the schedule specifies as a date, but the XSD specifies as a datetime, provide T00:00:00 as the time.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "If date field is represented as datetime in XSD, time should be T00:00:00.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Financial statement data fields should be populated with the most recent financial statement data available.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "AccountBalance",
+            "Income"
+        ],
+        "severity": "Medium",
+        "condition": "Data should be the most recent available.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Specific fields (54, 56, 57, 58, 59, and 82) should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth"
+        ],
+        "severity": "Medium",
+        "condition": "Data should represent the most recent TTM period.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "If an obligor lacks trailing twelve months of financial information, provide the underwritten annual information for specified fields.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth"
+        ],
+        "severity": "Medium",
+        "condition": "If TTM data is unavailable, use underwritten annual information.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R6",
+        "description": "Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth"
+        ],
+        "severity": "Medium",
+        "condition": "Data should represent the TTM period ended one year prior.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "1",
+        "description": "Report financial data fields based on the bank's financial spreading systems and credit policy, using the most recent data available as of the report date.  For date fields, provide T00:00:00 as the time if the XSD specifies datetime.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "Data should reflect the most recent financial statement data. Date fields must adhere to YYYY-MM-DD format with T00:00:00 as the time component.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "2",
+        "description": "Report fields 54, 56, 57, 58, 59, and 82 for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "Data should reflect the most recent financial statement data. Date fields must adhere to YYYY-MM-DD format with T00:00:00 as the time component.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "3",
+        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
+        "applicable_columns": [
+            "CustomerID",
+            "LoanAmount",
+            "CreditScore",
+            "LoanTerm",
+            "LoanType",
+            "AccountBalance",
+            "MonthlyInstallment",
+            "CollateralValue",
+            "Income",
+            "DebtToIncomeRatio",
+            "EmploymentStatus",
+            "RepaymentStatus",
+            "RiskCategory",
+            "FraudFlag",
+            "Currency",
+            "BranchID",
+            "AccountType",
+            "Region",
+            "State",
+            "ZIPCode",
+            "CreditLimit",
+            "UtilizationRate",
+            "PaymentHistory",
+            "DefaultFlag",
+            "LoanPurpose",
+            "DelinquencyStatus",
+            "PastDueAmount",
+            "WriteOffAmount",
+            "ForeclosureFlag",
+            "CustomerAge",
+            "MaritalStatus",
+            "NumberOfDependents",
+            "EducationLevel",
+            "HousingStatus",
+            "AnnualRevenue",
+            "NetWorth",
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Data must be in XML format without header rows, row counts, or quotation marks as text identifiers.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "4",
+        "description": "For fields that the schedule specifies as a date, but the XSD specifies as a datetime, provide T00:00:00 as the time.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Date fields must adhere to YYYY-MM-DD format with T00:00:00 as the time component.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
+        "applicable_columns": [],
+        "severity": "High",
+        "condition": "Data must be in XML format without quotation marks, header row, or row count.",
+        "expected_data_type": null
+    },
+    {
+        "rule_id": "R2",
+        "description": "For date fields, provide T00:00:00 as the time if the XSD specifies a datetime.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "If the date field is defined as datetime in XSD, the time portion must be T00:00:00.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Fields 54, 56, 57, 58, 59, and 82 should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income"
+        ],
+        "severity": "Medium",
+        "condition": "AnnualRevenue, NetWorth, and Income should be based on TTM data or underwritten annual information.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Financial statement data should be populated with the most recent data available as of the report date.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "AccountBalance",
+            "CollateralValue",
+            "Income"
+        ],
+        "severity": "High",
+        "condition": "Data should be the most recent available in the financial spreading system as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Fields 54, 56, 57, 58, 59, and 82 (assuming these map to AnnualRevenue, NetWorth, AccountBalance, CollateralValue, Income, CreditLimit) should be reported for the most recently available trailing twelve month (TTM) period.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "AccountBalance",
+            "CollateralValue",
+            "Income",
+            "CreditLimit"
+        ],
+        "severity": "High",
+        "condition": "Data should represent the most recent trailing twelve month (TTM) period.  If TTM data is unavailable, use underwritten annual information.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R3",
+        "description": "The ending date for TTM or underwritten annual information should be indicated in Field 52 (assuming this maps to MaturityDate).",
+        "applicable_columns": [
+            "MaturityDate",
+            "AnnualRevenue",
+            "NetWorth",
+            "AccountBalance",
+            "CollateralValue",
+            "Income",
+            "CreditLimit"
+        ],
+        "severity": "Medium",
+        "condition": "If AnnualRevenue, NetWorth, AccountBalance, CollateralValue, Income, CreditLimit are reported for a TTM or underwritten annual period, then MaturityDate should indicate the ending date of that period.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Fields 55 and 60 (assuming these map to PastDueAmount and WriteOffAmount) should be reported for the TTM period ended one year prior to the date indicated in Field 52 (MaturityDate).",
+        "applicable_columns": [
+            "PastDueAmount",
+            "WriteOffAmount",
+            "MaturityDate"
+        ],
+        "severity": "Medium",
+        "condition": "If PastDueAmount and WriteOffAmount are reported for a TTM period, the MaturityDate should be one year later than the end of that TTM period.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "Data should be provided in a single extensible markup language file (.xml).",
+        "applicable_columns": [],
+        "severity": "High",
+        "condition": "Data must be submitted in XML format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R6",
+        "description": "No quotation marks should be used as text identifiers.",
+        "applicable_columns": [
+            "CustomerID",
+            "LoanType",
+            "EmploymentStatus",
+            "RiskCategory",
+            "Currency",
+            "BranchID",
+            "AccountType",
+            "Region",
+            "State",
+            "LoanPurpose",
+            "DelinquencyStatus",
+            "MaritalStatus",
+            "EducationLevel",
+            "HousingStatus"
+        ],
+        "severity": "Low",
+        "condition": "String fields should not contain quotation marks.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R7",
+        "description": "For fields specified as a date, provide T00:00:00 as the time.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Low",
+        "condition": "Date fields should have a time component of T00:00:00.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
+        "applicable_columns": [],
+        "severity": "High",
+        "condition": "Data must be in XML format without quotation marks, header row, or row count.",
+        "expected_data_type": null
+    },
+    {
+        "rule_id": "R2",
+        "description": "For fields that the schedule specifies as a date, but the XSD specifies as a datetime, provide T00:00:00 as the time.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "If the field is a date, but the XSD specifies a datetime, the time should be T00:00:00.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Financial statement data fields should be populated with the most recent financial statement data available as of the report date and should not be bound by financial statement data that was used in the consolidated holding company\u2019s most recent formal rating review.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "AccountBalance",
+            "CollateralValue"
+        ],
+        "severity": "Medium",
+        "condition": "Data should reflect the most recent financial data available as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Fields 54, 56, 57, 58, 59, and 82 should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "Income",
+            "AccountBalance",
+            "CollateralValue",
+            "LoanAmount"
+        ],
+        "severity": "Medium",
+        "condition": "Report data for the most recent TTM period. If TTM data is unavailable, use underwritten annual information.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth"
+        ],
+        "severity": "Medium",
+        "condition": "Report data for the TTM period ended one year prior. If TTM data is unavailable, use underwritten annual information.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Financial statement data fields (Fields 54, 55, 56, 57, 58, 59, 60, and 82) should be populated with the most recent financial statement data available as of the report date according to the bank's credit policy and financial spreading systems. If TTM data is unavailable, use underwritten annual information.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth"
+        ],
+        "severity": "Medium",
+        "condition": "Data must be consistent with the bank's financial spreading systems and credit policy. If Trailing Twelve Month (TTM) data is not available, underwritten annual data should be used.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Reporting banks must submit data in a single XML file without quotation marks as text identifiers, header rows, or row counts.",
+        "applicable_columns": [
+            "CustomerID",
+            "LoanAmount",
+            "CreditScore",
+            "LoanTerm",
+            "LoanType",
+            "AccountBalance",
+            "MonthlyInstallment",
+            "CollateralValue",
+            "Income",
+            "DebtToIncomeRatio",
+            "EmploymentStatus",
+            "RepaymentStatus",
+            "RiskCategory",
+            "FraudFlag",
+            "Currency",
+            "BranchID",
+            "AccountType",
+            "Region",
+            "State",
+            "ZIPCode",
+            "CreditLimit",
+            "UtilizationRate",
+            "PaymentHistory",
+            "DefaultFlag",
+            "LoanPurpose",
+            "DelinquencyStatus",
+            "PastDueAmount",
+            "WriteOffAmount",
+            "ForeclosureFlag",
+            "CustomerAge",
+            "MaritalStatus",
+            "NumberOfDependents",
+            "EducationLevel",
+            "HousingStatus",
+            "AnnualRevenue",
+            "NetWorth",
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Data must be submitted in a single XML file, with no quotation marks, header rows, or row counts.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Date fields should be reported with 'T00:00:00' as the time component in the datetime format.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "Date values must be in YYYY-MM-DD format, with 'T00:00:00' as the time.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Data must be provided in a single XML file without header row or row count. No quotation marks should be used as text identifiers.",
+        "applicable_columns": [
+            "LoanAmount",
+            "CreditScore",
+            "LoanTerm",
+            "LoanType",
+            "AccountBalance",
+            "MonthlyInstallment",
+            "CollateralValue",
+            "Income",
+            "DebtToIncomeRatio",
+            "EmploymentStatus",
+            "RepaymentStatus",
+            "RiskCategory",
+            "FraudFlag",
+            "Currency",
+            "BranchID",
+            "AccountType",
+            "Region",
+            "State",
+            "ZIPCode",
+            "CreditLimit",
+            "UtilizationRate",
+            "PaymentHistory",
+            "DefaultFlag",
+            "LoanPurpose",
+            "DelinquencyStatus",
+            "PastDueAmount",
+            "WriteOffAmount",
+            "ForeclosureFlag",
+            "CustomerAge",
+            "MaritalStatus",
+            "NumberOfDependents",
+            "EducationLevel",
+            "HousingStatus",
+            "AnnualRevenue",
+            "NetWorth",
+            "MaturityDate",
+            "OriginationDate",
+            "CustomerID"
+        ],
+        "severity": "High",
+        "condition": "Data must be in XML format, without header, row count, or quotation marks.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Date fields should be reported in YYYY-MM-DD format with T00:00:00 as the time.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Date format must be YYYY-MM-DD and time must be T00:00:00.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Fields 54, 56, 57, 58, 59, and 82 should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "applicable_columns": [
+            "AnnualRevenue",
+            "NetWorth",
+            "LoanAmount",
+            "AccountBalance",
+            "MonthlyInstallment"
+        ],
+        "severity": "Medium",
+        "condition": "Fields must be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "expected_data_type": "float"
+    }
+]
