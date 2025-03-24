@@ -77,7 +77,7 @@ def chat_ui(extracted_rules_json, violated_rules_json):
 
         # Convert violations into searchable text
         violations_text = [
-            f"Row {e['row_no']}, Column {e['column_name']}: {e['error_description']}. Suggested fix: {e.get('suggestion', 'No fix available.')}"
+            f"Row {e['row_no']}, Column {e['column_name']}: {e['error_description']}. Suggested fix: {e.get('suggestion_to_fix', 'No fix available.')}. Severity: {e['severity']}"
             for e in violated_rules_json.get("errors", [])
         ]
 
@@ -96,7 +96,7 @@ def chat_ui(extracted_rules_json, violated_rules_json):
 
         If the input is about a compliance issue or about the violations that happened , provide:
         - Explanation of the issue by mentioning which row and column and what issue
-        - Suggested fix (if applicable)
+        - Suggested fix for the issue with mentioning the severity
         - Compliance recommendation
         from this information in {retrieved_text}
 
