@@ -1,627 +1,2202 @@
 [
     {
         "rule_id": "R1",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Origination Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "OriginationDate"
         ],
-        "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
-        "expected_data_type": "float"
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R2",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Maturity Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "MaturityDate"
         ],
-        "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
-        "expected_data_type": "float"
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R3",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Non Accrual Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "NonAccrualDate"
         ],
         "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
-        "expected_data_type": "float"
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R4",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Committed Exposure must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "CommittedExposure"
         ],
-        "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "severity": "High",
+        "condition": {
+            "type": "numerical"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R5",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Utilized Exposure must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "UtilizedExposure"
         ],
-        "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "severity": "High",
+        "condition": {
+            "type": "numerical"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R6",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Cumulative Chargeoffs must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "CumulativeChargeoffs"
         ],
         "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "condition": {
+            "type": "numerical"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R7",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Past Due must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "PastDue"
         ],
         "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "condition": {
+            "type": "numerical"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R8",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Interest Rate must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "InterestRate"
         ],
         "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "condition": {
+            "type": "numerical"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R9",
-        "description": "Data for fields AnnualRevenue, NetWorth, Income, DebtToIncomeRatio, AccountBalance and CollateralValue should be reported based on the most recent financial data available as of the report date, following the bank's credit policy and financial spreading systems.",
+        "description": "Interest Rate Spread must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "DebtToIncomeRatio",
-            "AccountBalance",
-            "CollateralValue"
+            "InterestRateSpread"
         ],
-        "severity": "Medium",
-        "condition": "The values must be derived from the most recent financial statement data available as of the report date.",
+        "severity": "Low",
+        "condition": {
+            "type": "numerical"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R10",
-        "description": "MaturityDate and OriginationDate should be in YYYY-MM-DDTHH:MM:SS format.",
+        "description": "Interest Rate Ceiling must be a valid number.",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Interest Rate Floor must be a valid number.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R12",
+        "description": "ZipCodeForeignMailingCode should be a string.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R13",
+        "description": "ObligorName should be a string.",
+        "applicable_columns": [
+            "ObligorName"
         ],
         "severity": "High",
-        "condition": "Value must match the pattern ^\\d{4}-\\d{2}-\\d{2}T00:00:00$",
-        "expected_data_type": "date"
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R14",
+        "description": "City should be a string.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R15",
+        "description": "Country should be a string.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R16",
+        "description": "InternalRating should be a string.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R17",
+        "description": "StockExchange should be a string.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R18",
+        "description": "TickerSymbol should be a string.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R19",
+        "description": "CUSIP should be a string.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R20",
+        "description": "FacilityType should be a string.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R21",
+        "description": "CreditFacilityPurpose should be a string.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R22",
+        "description": "LineReportedOnFRY9C should be a string.",
+        "applicable_columns": [
+            "LineReportedOnFRY9C"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R23",
+        "description": "LineOfBusiness should be a string.",
+        "applicable_columns": [
+            "LineOfBusiness"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R24",
+        "description": "SecurityType should be a string.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R25",
+        "description": "InterestRateIndex should be a string.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R26",
+        "description": "GuarantorName should be a string.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R27",
+        "description": "EntityName should be a string.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R28",
+        "description": "IndustryCodeType should be a string.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R29",
+        "description": "ParticipationFlag should be a boolean.",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "boolean"
+        },
+        "expected_data_type": "boolean"
+    },
+    {
+        "rule_id": "R30",
+        "description": "InterestRateVariability should be a boolean.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "boolean"
+        },
+        "expected_data_type": "boolean"
+    },
+    {
+        "rule_id": "R31",
+        "description": "TaxStatus should be a boolean.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "boolean"
+        },
+        "expected_data_type": "boolean"
+    },
+    {
+        "rule_id": "R32",
+        "description": "GuarantorFlag should be a boolean.",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "boolean"
+        },
+        "expected_data_type": "boolean"
+    },
+    {
+        "rule_id": "R33",
+        "description": "CustomerID should be an integer.",
+        "applicable_columns": [
+            "CustomerID"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R34",
+        "description": "InternalObligorID should be an integer.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R35",
+        "description": "IndustryCode should be an integer.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R36",
+        "description": "InternalCreditFacilityID should be an integer.",
+        "applicable_columns": [
+            "InternalCreditFacilityID"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R37",
+        "description": "LienPosition should be an integer.",
+        "applicable_columns": [
+            "LienPosition"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R38",
+        "description": "GuarantorInternalID should be an integer.",
+        "applicable_columns": [
+            "GuarantorInternalID"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R39",
+        "description": "EntityInternalID should be an integer.",
+        "applicable_columns": [
+            "EntityInternalID"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "integer"
+        },
+        "expected_data_type": "integer"
     },
     {
         "rule_id": "R1",
-        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
-        "applicable_columns": [],
+        "description": "Origination Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
         "severity": "High",
-        "condition": "Data must be in XML format without quotation marks and no header row or row count.",
-        "expected_data_type": null
+        "condition": {
+            "type": "date_format",
+            "format": "YYYY-MM-DD"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R2",
-        "description": "For fields that the schedule specifies as a date, but the XSD specifies as a datetime, provide T00:00:00 as the time.",
+        "description": "Maturity Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "MaturityDate"
         ],
-        "severity": "Medium",
-        "condition": "If date field is represented as datetime in XSD, time should be T00:00:00.",
+        "severity": "High",
+        "condition": {
+            "type": "date_format",
+            "format": "YYYY-MM-DD"
+        },
         "expected_data_type": "date"
     },
     {
         "rule_id": "R3",
-        "description": "Financial statement data fields should be populated with the most recent financial statement data available.",
+        "description": "Non Accrual Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "AccountBalance",
-            "Income"
+            "NonAccrualDate"
         ],
-        "severity": "Medium",
-        "condition": "Data should be the most recent available.",
-        "expected_data_type": "float"
+        "severity": "High",
+        "condition": {
+            "type": "date_format",
+            "format": "YYYY-MM-DD"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R4",
-        "description": "Specific fields (54, 56, 57, 58, 59, and 82) should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52.",
+        "description": "Committed Exposure must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth"
+            "CommittedExposure"
         ],
         "severity": "Medium",
-        "condition": "Data should represent the most recent TTM period.",
+        "condition": {
+            "type": "is_number"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R5",
-        "description": "If an obligor lacks trailing twelve months of financial information, provide the underwritten annual information for specified fields.",
+        "description": "Utilized Exposure must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth"
+            "UtilizedExposure"
         ],
         "severity": "Medium",
-        "condition": "If TTM data is unavailable, use underwritten annual information.",
+        "condition": {
+            "type": "is_number"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R6",
-        "description": "Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52.",
+        "description": "Cumulative Chargeoffs must be a valid number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth"
+            "CumulativeChargeoffs"
         ],
         "severity": "Medium",
-        "condition": "Data should represent the TTM period ended one year prior.",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R7",
+        "description": "Past Due must be a valid number.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Interest Rate must be a valid number.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Interest Rate Spread must be a valid number.",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "Interest Rate Ceiling must be a valid number.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Interest Rate Floor must be a valid number.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "is_number"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "1",
-        "description": "Report financial data fields based on the bank's financial spreading systems and credit policy, using the most recent data available as of the report date.  For date fields, provide T00:00:00 as the time if the XSD specifies datetime.",
+        "description": "OriginationDate must be in YYYY-MM-DD format",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "MaturityDate",
             "OriginationDate"
         ],
-        "severity": "Medium",
-        "condition": "Data should reflect the most recent financial statement data. Date fields must adhere to YYYY-MM-DD format with T00:00:00 as the time component.",
-        "expected_data_type": "float"
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "2",
-        "description": "Report fields 54, 56, 57, 58, 59, and 82 for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "description": "MaturityDate must be in YYYY-MM-DD format",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "MaturityDate",
-            "OriginationDate"
+            "MaturityDate"
         ],
-        "severity": "Medium",
-        "condition": "Data should reflect the most recent financial statement data. Date fields must adhere to YYYY-MM-DD format with T00:00:00 as the time component.",
-        "expected_data_type": "float"
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "3",
-        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
+        "description": "NonAccrualDate must be in YYYY-MM-DD format",
         "applicable_columns": [
-            "CustomerID",
-            "LoanAmount",
-            "CreditScore",
-            "LoanTerm",
-            "LoanType",
-            "AccountBalance",
-            "MonthlyInstallment",
-            "CollateralValue",
-            "Income",
-            "DebtToIncomeRatio",
-            "EmploymentStatus",
-            "RepaymentStatus",
-            "RiskCategory",
-            "FraudFlag",
-            "Currency",
-            "BranchID",
-            "AccountType",
-            "Region",
-            "State",
-            "ZIPCode",
-            "CreditLimit",
-            "UtilizationRate",
-            "PaymentHistory",
-            "DefaultFlag",
-            "LoanPurpose",
-            "DelinquencyStatus",
-            "PastDueAmount",
-            "WriteOffAmount",
-            "ForeclosureFlag",
-            "CustomerAge",
-            "MaritalStatus",
-            "NumberOfDependents",
-            "EducationLevel",
-            "HousingStatus",
-            "AnnualRevenue",
-            "NetWorth",
-            "MaturityDate",
-            "OriginationDate"
+            "NonAccrualDate"
         ],
-        "severity": "High",
-        "condition": "Data must be in XML format without header rows, row counts, or quotation marks as text identifiers.",
-        "expected_data_type": "string"
+        "severity": "Medium",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "4",
-        "description": "For fields that the schedule specifies as a date, but the XSD specifies as a datetime, provide T00:00:00 as the time.",
+        "description": "ZipCodeForeignMailingCode should only contain numbers",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "ZipCodeForeignMailingCode"
         ],
-        "severity": "High",
-        "condition": "Date fields must adhere to YYYY-MM-DD format with T00:00:00 as the time component.",
-        "expected_data_type": "date"
+        "severity": "Low",
+        "condition": {
+            "type": "regex",
+            "value": "^[0-9]*$"
+        },
+        "expected_data_type": "string"
     },
     {
-        "rule_id": "R1",
-        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
-        "applicable_columns": [],
-        "severity": "High",
-        "condition": "Data must be in XML format without quotation marks, header row, or row count.",
-        "expected_data_type": null
-    },
-    {
-        "rule_id": "R2",
-        "description": "For date fields, provide T00:00:00 as the time if the XSD specifies a datetime.",
+        "rule_id": "5",
+        "description": "InterestRate should be a valid floating point number",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "InterestRate"
         ],
         "severity": "Medium",
-        "condition": "If the date field is defined as datetime in XSD, the time portion must be T00:00:00.",
-        "expected_data_type": "date"
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
+        "expected_data_type": "float"
     },
     {
-        "rule_id": "R3",
-        "description": "Fields 54, 56, 57, 58, 59, and 82 should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "rule_id": "6",
+        "description": "InterestRateSpread should be a valid floating point number",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income"
+            "InterestRateSpread"
         ],
         "severity": "Medium",
-        "condition": "AnnualRevenue, NetWorth, and Income should be based on TTM data or underwritten annual information.",
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "7",
+        "description": "InterestRateCeiling should be a valid floating point number",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "8",
+        "description": "InterestRateFloor should be a valid floating point number",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "9",
+        "description": "CommittedExposure should be a valid floating point number",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "10",
+        "description": "UtilizedExposure should be a valid floating point number",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "11",
+        "description": "CumulativeChargeoffs should be a valid floating point number",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "regex",
+            "value": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R1",
-        "description": "Financial statement data should be populated with the most recent data available as of the report date.",
+        "description": "Origination Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "AccountBalance",
-            "CollateralValue",
-            "Income"
+            "OriginationDate"
         ],
         "severity": "High",
-        "condition": "Data should be the most recent available in the financial spreading system as of the report date.",
-        "expected_data_type": "float"
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R2",
-        "description": "Fields 54, 56, 57, 58, 59, and 82 (assuming these map to AnnualRevenue, NetWorth, AccountBalance, CollateralValue, Income, CreditLimit) should be reported for the most recently available trailing twelve month (TTM) period.",
+        "description": "Maturity Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "AccountBalance",
-            "CollateralValue",
-            "Income",
-            "CreditLimit"
+            "MaturityDate"
         ],
         "severity": "High",
-        "condition": "Data should represent the most recent trailing twelve month (TTM) period.  If TTM data is unavailable, use underwritten annual information.",
-        "expected_data_type": "float"
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R3",
-        "description": "The ending date for TTM or underwritten annual information should be indicated in Field 52 (assuming this maps to MaturityDate).",
+        "description": "Non Accrual Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "MaturityDate",
-            "AnnualRevenue",
-            "NetWorth",
-            "AccountBalance",
-            "CollateralValue",
-            "Income",
-            "CreditLimit"
+            "NonAccrualDate"
         ],
         "severity": "Medium",
-        "condition": "If AnnualRevenue, NetWorth, AccountBalance, CollateralValue, Income, CreditLimit are reported for a TTM or underwritten annual period, then MaturityDate should indicate the ending date of that period.",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
         "expected_data_type": "date"
     },
     {
         "rule_id": "R4",
-        "description": "Fields 55 and 60 (assuming these map to PastDueAmount and WriteOffAmount) should be reported for the TTM period ended one year prior to the date indicated in Field 52 (MaturityDate).",
+        "description": "Committed Exposure must be a numeric value.",
         "applicable_columns": [
-            "PastDueAmount",
-            "WriteOffAmount",
-            "MaturityDate"
+            "CommittedExposure"
         ],
-        "severity": "Medium",
-        "condition": "If PastDueAmount and WriteOffAmount are reported for a TTM period, the MaturityDate should be one year later than the end of that TTM period.",
+        "severity": "High",
+        "condition": {
+            "type": "numeric"
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R5",
-        "description": "Data should be provided in a single extensible markup language file (.xml).",
-        "applicable_columns": [],
+        "description": "Utilized Exposure must be a numeric value.",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
         "severity": "High",
-        "condition": "Data must be submitted in XML format.",
-        "expected_data_type": "string"
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
     },
     {
         "rule_id": "R6",
-        "description": "No quotation marks should be used as text identifiers.",
+        "description": "Cumulative Chargeoffs must be a numeric value.",
         "applicable_columns": [
-            "CustomerID",
-            "LoanType",
-            "EmploymentStatus",
-            "RiskCategory",
-            "Currency",
-            "BranchID",
-            "AccountType",
-            "Region",
-            "State",
-            "LoanPurpose",
-            "DelinquencyStatus",
-            "MaritalStatus",
-            "EducationLevel",
-            "HousingStatus"
+            "CumulativeChargeoffs"
         ],
-        "severity": "Low",
-        "condition": "String fields should not contain quotation marks.",
-        "expected_data_type": "string"
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
     },
     {
         "rule_id": "R7",
-        "description": "For fields specified as a date, provide T00:00:00 as the time.",
+        "description": "Past Due must be a numeric value.",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Interest Rate must be a numeric value.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Interest Rate Spread must be a numeric value.",
+        "applicable_columns": [
+            "InterestRateSpread"
         ],
         "severity": "Low",
-        "condition": "Date fields should have a time component of T00:00:00.",
-        "expected_data_type": "date"
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "Interest Rate Ceiling must be a numeric value.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Interest Rate Floor must be a numeric value.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R12",
+        "description": "ZipCodeForeignMailingCode must be a string.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R13",
+        "description": "InternalObligorID must be a string.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R14",
+        "description": "ObligorName must be a string.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R15",
+        "description": "City must be a string.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R16",
+        "description": "Country must be a string.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R17",
+        "description": "IndustryCode must be a string.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R18",
+        "description": "IndustryCodeType must be a string.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R19",
+        "description": "InternalRating must be a string.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R20",
+        "description": "TIN must be a string.",
+        "applicable_columns": [
+            "TIN"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R21",
+        "description": "StockExchange must be a string.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R22",
+        "description": "TickerSymbol must be a string.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R23",
+        "description": "CUSIP must be a string.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R24",
+        "description": "FacilityType must be a string.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R25",
+        "description": "CreditFacilityPurpose must be a string.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R26",
+        "description": "LineReportedOnFRY9C must be a string.",
+        "applicable_columns": [
+            "LineReportedOnFRY9C"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R27",
+        "description": "LineOfBusiness must be a string.",
+        "applicable_columns": [
+            "LineOfBusiness"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R28",
+        "description": "ParticipationFlag must be a string.",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R29",
+        "description": "LienPosition must be a string.",
+        "applicable_columns": [
+            "LienPosition"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R30",
+        "description": "SecurityType must be a string.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R31",
+        "description": "InterestRateVariability must be a string.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R32",
+        "description": "InterestRateIndex must be a string.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R33",
+        "description": "TaxStatus must be a string.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R34",
+        "description": "GuarantorFlag must be a string.",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R35",
+        "description": "GuarantorName must be a string.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R36",
+        "description": "EntityName must be a string.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
     },
     {
         "rule_id": "R1",
-        "description": "Data should be provided in a single extensible markup language file (.xml). No quotation marks should be used as text identifiers. Do not provide a header row or a row count.",
-        "applicable_columns": [],
+        "description": "Origination Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
         "severity": "High",
-        "condition": "Data must be in XML format without quotation marks, header row, or row count.",
-        "expected_data_type": null
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R2",
-        "description": "For fields that the schedule specifies as a date, but the XSD specifies as a datetime, provide T00:00:00 as the time.",
+        "description": "Maturity Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "MaturityDate"
         ],
-        "severity": "Medium",
-        "condition": "If the field is a date, but the XSD specifies a datetime, the time should be T00:00:00.",
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
         "expected_data_type": "date"
     },
     {
         "rule_id": "R3",
-        "description": "Financial statement data fields should be populated with the most recent financial statement data available as of the report date and should not be bound by financial statement data that was used in the consolidated holding company\u2019s most recent formal rating review.",
+        "description": "Non Accrual Date must be in YYYY-MM-DD format.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "AccountBalance",
-            "CollateralValue"
+            "NonAccrualDate"
         ],
         "severity": "Medium",
-        "condition": "Data should reflect the most recent financial data available as of the report date.",
-        "expected_data_type": "float"
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
     },
     {
         "rule_id": "R4",
-        "description": "Fields 54, 56, 57, 58, 59, and 82 should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52.",
+        "description": "Committed Exposure should be a valid positive number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "Income",
-            "AccountBalance",
-            "CollateralValue",
-            "LoanAmount"
+            "CommittedExposure"
         ],
-        "severity": "Medium",
-        "condition": "Report data for the most recent TTM period. If TTM data is unavailable, use underwritten annual information.",
+        "severity": "High",
+        "condition": {
+            "type": "numerical",
+            "operator": ">=",
+            "value": 0
+        },
         "expected_data_type": "float"
     },
     {
         "rule_id": "R5",
-        "description": "Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "description": "Utilized Exposure should be a valid positive number.",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth"
-        ],
-        "severity": "Medium",
-        "condition": "Report data for the TTM period ended one year prior. If TTM data is unavailable, use underwritten annual information.",
-        "expected_data_type": "float"
-    },
-    {
-        "rule_id": "R1",
-        "description": "Financial statement data fields (Fields 54, 55, 56, 57, 58, 59, 60, and 82) should be populated with the most recent financial statement data available as of the report date according to the bank's credit policy and financial spreading systems. If TTM data is unavailable, use underwritten annual information.",
-        "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth"
-        ],
-        "severity": "Medium",
-        "condition": "Data must be consistent with the bank's financial spreading systems and credit policy. If Trailing Twelve Month (TTM) data is not available, underwritten annual data should be used.",
-        "expected_data_type": "float"
-    },
-    {
-        "rule_id": "R2",
-        "description": "Reporting banks must submit data in a single XML file without quotation marks as text identifiers, header rows, or row counts.",
-        "applicable_columns": [
-            "CustomerID",
-            "LoanAmount",
-            "CreditScore",
-            "LoanTerm",
-            "LoanType",
-            "AccountBalance",
-            "MonthlyInstallment",
-            "CollateralValue",
-            "Income",
-            "DebtToIncomeRatio",
-            "EmploymentStatus",
-            "RepaymentStatus",
-            "RiskCategory",
-            "FraudFlag",
-            "Currency",
-            "BranchID",
-            "AccountType",
-            "Region",
-            "State",
-            "ZIPCode",
-            "CreditLimit",
-            "UtilizationRate",
-            "PaymentHistory",
-            "DefaultFlag",
-            "LoanPurpose",
-            "DelinquencyStatus",
-            "PastDueAmount",
-            "WriteOffAmount",
-            "ForeclosureFlag",
-            "CustomerAge",
-            "MaritalStatus",
-            "NumberOfDependents",
-            "EducationLevel",
-            "HousingStatus",
-            "AnnualRevenue",
-            "NetWorth",
-            "MaturityDate",
-            "OriginationDate"
+            "UtilizedExposure"
         ],
         "severity": "High",
-        "condition": "Data must be submitted in a single XML file, with no quotation marks, header rows, or row counts.",
+        "condition": {
+            "type": "numerical",
+            "operator": ">=",
+            "value": 0
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R6",
+        "description": "Cumulative Chargeoffs should be a valid number.",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R7",
+        "description": "Interest Rate should be a valid number.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Interest Rate Spread should be a valid number.",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Interest Rate Ceiling should be a valid number.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "Interest Rate Floor should be a valid number.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Past Due should be a valid number.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R12",
+        "description": "Zip Code Foreign Mailing Code should be a valid string.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
         "expected_data_type": "string"
     },
     {
-        "rule_id": "R3",
-        "description": "Date fields should be reported with 'T00:00:00' as the time component in the datetime format.",
+        "rule_id": "R13",
+        "description": "Obligor Name should be a valid string.",
         "applicable_columns": [
-            "MaturityDate",
-            "OriginationDate"
+            "ObligorName"
         ],
-        "severity": "Medium",
-        "condition": "Date values must be in YYYY-MM-DD format, with 'T00:00:00' as the time.",
-        "expected_data_type": "date"
+        "severity": "High",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
     },
     {
-        "rule_id": "R1",
-        "description": "Data must be provided in a single XML file without header row or row count. No quotation marks should be used as text identifiers.",
+        "rule_id": "R14",
+        "description": "City should be a valid string.",
         "applicable_columns": [
-            "LoanAmount",
-            "CreditScore",
-            "LoanTerm",
-            "LoanType",
-            "AccountBalance",
-            "MonthlyInstallment",
-            "CollateralValue",
-            "Income",
-            "DebtToIncomeRatio",
-            "EmploymentStatus",
-            "RepaymentStatus",
-            "RiskCategory",
-            "FraudFlag",
-            "Currency",
-            "BranchID",
-            "AccountType",
-            "Region",
-            "State",
-            "ZIPCode",
-            "CreditLimit",
-            "UtilizationRate",
-            "PaymentHistory",
-            "DefaultFlag",
-            "LoanPurpose",
-            "DelinquencyStatus",
-            "PastDueAmount",
-            "WriteOffAmount",
-            "ForeclosureFlag",
-            "CustomerAge",
-            "MaritalStatus",
-            "NumberOfDependents",
-            "EducationLevel",
-            "HousingStatus",
-            "AnnualRevenue",
-            "NetWorth",
-            "MaturityDate",
-            "OriginationDate",
+            "City"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R15",
+        "description": "Country should be a valid string.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R16",
+        "description": "Industry Code should be a valid string.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R17",
+        "description": "Industry Code Type should be a valid string.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R18",
+        "description": "Internal Rating should be a valid string.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R19",
+        "description": "TIN should be a valid string.",
+        "applicable_columns": [
+            "TIN"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R20",
+        "description": "Stock Exchange should be a valid string.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R21",
+        "description": "Ticker Symbol should be a valid string.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R22",
+        "description": "CUSIP should be a valid string.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R23",
+        "description": "Facility Type should be a valid string.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R24",
+        "description": "Credit Facility Purpose should be a valid string.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R25",
+        "description": "Line Reported On FRY9C should be a valid string.",
+        "applicable_columns": [
+            "LineReportedOnFRY9C"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R26",
+        "description": "Line Of Business should be a valid string.",
+        "applicable_columns": [
+            "LineOfBusiness"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R27",
+        "description": "Participation Flag should be a valid string.",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R28",
+        "description": "Lien Position should be a valid string.",
+        "applicable_columns": [
+            "LienPosition"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R29",
+        "description": "Security Type should be a valid string.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R30",
+        "description": "Interest Rate Variability should be a valid string.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R31",
+        "description": "Interest Rate Index should be a valid string.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R32",
+        "description": "Tax Status should be a valid string.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R33",
+        "description": "Guarantor Flag should be a valid string.",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R34",
+        "description": "Guarantor Name should be a valid string.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R35",
+        "description": "Entity Name should be a valid string.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R36",
+        "description": "CustomerID should be a valid string.",
+        "applicable_columns": [
             "CustomerID"
         ],
         "severity": "High",
-        "condition": "Data must be in XML format, without header, row count, or quotation marks.",
+        "condition": {
+            "type": "string"
+        },
         "expected_data_type": "string"
     },
     {
-        "rule_id": "R2",
-        "description": "Date fields should be reported in YYYY-MM-DD format with T00:00:00 as the time.",
+        "rule_id": "R37",
+        "description": "InternalObligorID should be a valid string.",
         "applicable_columns": [
-            "MaturityDate",
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R38",
+        "description": "GuarantorInternalID should be a valid string.",
+        "applicable_columns": [
+            "GuarantorInternalID"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R39",
+        "description": "EntityInternalID should be a valid string.",
+        "applicable_columns": [
+            "EntityInternalID"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R40",
+        "description": "InternalCreditFacilityID should be a valid string.",
+        "applicable_columns": [
+            "InternalCreditFacilityID"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "string"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Origination Date should be in YYYY-MM-DD format",
+        "applicable_columns": [
             "OriginationDate"
         ],
         "severity": "High",
-        "condition": "Date format must be YYYY-MM-DD and time must be T00:00:00.",
+        "condition": {
+            "type": "regex",
+            "expression": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Maturity Date should be in YYYY-MM-DD format",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "expression": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
         "expected_data_type": "date"
     },
     {
         "rule_id": "R3",
-        "description": "Fields 54, 56, 57, 58, 59, and 82 should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "description": "Non Accrual Date should be in YYYY-MM-DD format",
         "applicable_columns": [
-            "AnnualRevenue",
-            "NetWorth",
-            "LoanAmount",
-            "AccountBalance",
-            "MonthlyInstallment"
+            "NonAccrualDate"
         ],
         "severity": "Medium",
-        "condition": "Fields must be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 54, 56, 57, 58, 59, and 82, provide the underwritten annual information for Fields 54, 56, 57, 58, 59 and 82, with the ending date indicated in Field 52. Fields 55 and 60 should be reported for the TTM period ended one year prior to the date indicated in Field 52. If an obligor lacks trailing twelve months of financial information sufficient for Fields 55 and 60, provide the underwritten annual information for Fields 55 and 60, with the ending date one year prior to the date indicated in Field 52.",
+        "condition": {
+            "type": "regex",
+            "expression": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Committed Exposure must be a valid number",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "numeric"
+        },
         "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "Utilized Exposure must be a valid number",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R6",
+        "description": "Cumulative Chargeoffs must be a valid number",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R7",
+        "description": "Past Due must be a valid number",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Interest Rate must be a valid number",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Interest Rate Spread must be a valid number",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "Interest Rate Ceiling must be a valid number",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Interest Rate Floor must be a valid number",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R12",
+        "description": "Zip Code Foreign Mailing Code should be a valid number",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Origination Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Maturity Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Non Accrual Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "NonAccrualDate"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Committed Exposure must be a numeric value.",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "Utilized Exposure must be a numeric value.",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R6",
+        "description": "Cumulative Chargeoffs must be a numeric value.",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R7",
+        "description": "Past Due must be a numeric value.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Interest Rate must be a numeric value.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Interest Rate Spread must be a numeric value.",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "Interest Rate Ceiling must be a numeric value.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Interest Rate Floor must be a numeric value.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numeric"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R12",
+        "description": "ZipCodeForeignMailingCode should contain only digits",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "regex",
+            "value": "^\\d+$"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R13",
+        "description": "ParticipationFlag should be boolean",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "boolean"
+        },
+        "expected_data_type": "boolean"
+    },
+    {
+        "rule_id": "R14",
+        "description": "GuarantorFlag should be boolean",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "boolean"
+        },
+        "expected_data_type": "boolean"
+    },
+    {
+        "rule_id": "R1",
+        "description": "Origination Date must be in YYYY-MM-DD format and not a future date.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "date_format",
+            "format": "YYYY-MM-DD",
+            "future_date_check": false
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R2",
+        "description": "Maturity Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "date_format",
+            "format": "YYYY-MM-DD"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R3",
+        "description": "Non Accrual Date must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "NonAccrualDate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "date_format",
+            "format": "YYYY-MM-DD"
+        },
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "R4",
+        "description": "Committed Exposure must be a positive number.",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "numerical_range",
+            "min": 0
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R5",
+        "description": "Utilized Exposure must be a positive number.",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": {
+            "type": "numerical_range",
+            "min": 0
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R6",
+        "description": "Cumulative Chargeoffs must be a non-negative number.",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical_range",
+            "min": 0
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R7",
+        "description": "Past Due must be a non-negative number.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical_range",
+            "min": 0
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R8",
+        "description": "Interest Rate must be a non-negative number.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "numerical_range",
+            "min": 0
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R9",
+        "description": "Interest Rate Spread must be a number.",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R10",
+        "description": "Interest Rate Ceiling must be a number.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R11",
+        "description": "Interest Rate Floor must be a number.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "is_number"
+        },
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "R12",
+        "description": "Zip Code Foreign Mailing Code should be in proper format.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": {
+            "type": "regex",
+            "pattern": "^\\d{5}(-\\d{4})?$"
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R13",
+        "description": "InternalRating should follow defined rating scale.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "allowed_values",
+            "values": [
+                "AAA",
+                "AA",
+                "A",
+                "BBB",
+                "BB",
+                "B",
+                "CCC",
+                "CC",
+                "C",
+                "D"
+            ]
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R14",
+        "description": "ParticipationFlag must be a boolean value (True/False).",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "allowed_values",
+            "values": [
+                "True",
+                "False"
+            ]
+        },
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "R15",
+        "description": "GuarantorFlag must be a boolean value (True/False).",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Medium",
+        "condition": {
+            "type": "allowed_values",
+            "values": [
+                "True",
+                "False"
+            ]
+        },
+        "expected_data_type": "string"
     }
 ]
