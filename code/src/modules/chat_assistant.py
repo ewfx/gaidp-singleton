@@ -82,7 +82,7 @@ def chat_ui(extracted_rules_json, violated_rules_json):
         ]
 
         # Initialize embeddings & vector store
-        embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="AIzaSyBNtXn6NefK6JG6dx-ZOHzuSVhuxu2fD54")
+        embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="")
         vector_store = FAISS.from_texts(violations_text, embedding=embeddings)
 
         # Retrieve relevant validation errors
@@ -104,7 +104,7 @@ def chat_ui(extracted_rules_json, violated_rules_json):
         """
 
         # Get AI response
-        chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash",google_api_key="AIzaSyBNtXn6NefK6JG6dx-ZOHzuSVhuxu2fD54")
+        chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash",google_api_key="")
         response = chat_model([HumanMessage(content=prompt)])
         assistant_response = response.content
 

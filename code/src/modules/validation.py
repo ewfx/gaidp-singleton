@@ -9,7 +9,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage
 
 # Initialize the GenAI model (Google Gemini)
-chat = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="AIzaSyBNtXn6NefK6JG6dx-ZOHzuSVhuxu2fD54")
+chat = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="")
 
 # Batch size
 batch_size = 10

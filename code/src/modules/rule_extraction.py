@@ -41,7 +41,7 @@ def extract_rules_from_pdf(pdf_file, df):
 
     df = pd.read_csv(df)
 
-    chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="AIzaSyBNtXn6NefK6JG6dx-ZOHzuSVhuxu2fD54")
+    chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="")
 
     # Load PDF text efficiently
      # Initialize progress bar
@@ -99,7 +99,7 @@ def extract_rules_from_pdf(pdf_file, df):
 
     # Step 3: Store Chunks in ChromaDB (Persistent Storage)
     persist_dir = "./chroma_db"
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="AIzaSyBNtXn6NefK6JG6dx-ZOHzuSVhuxu2fD54")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="")
     vector_store = Chroma.from_documents(documents, embedding=embeddings, persist_directory=persist_dir)
 
     # st.success("✅ Text extraction complete! Storing data for efficient retrieval.")

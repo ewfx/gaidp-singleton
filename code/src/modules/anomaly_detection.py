@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 import numpy as np
 import google.generativeai as genai
 
-chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="AIzaSyBNtXn6NefK6JG6dx-ZOHzuSVhuxu2fD54")
+chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="")
 
 
 # Load dataset
