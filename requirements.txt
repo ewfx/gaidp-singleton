@@ -1,0 +1,24 @@
+# Core Libraries
+pandas
+numpy
+streamlit
+tqdm
+
+# Machine Learning & Anomaly Detection
+scikit-learn
+plotly
+altair
+
+# LLMs & Generative AI
+langchain
+langchain-google-genai
+google-generativeai
+
+# Embeddings & Vector Storage
+chromadb
+faiss-cpu
+sentence-transformers
+
+# PDF Processing
+pdfplumber
+pypdf
