@@ -109,7 +109,7 @@ def validate_dataset(df, validation_rules):
             {json.dumps(validation_rules, indent=2)}
     
             Return the validation results in structured JSON format with:
-            - "errors": A list of validation errors (rule_id, row_no, column_name, severity, error_description (need to be very clear) , suggestion_to_fix (a short suggestion to fix the issue))
+            - "errors": A list of validation errors  (rule_id, row_no, column_name, severity, error_description (need to be very clear) , suggestion_to_fix (a short suggestion to fix the issue))
             
             ⚠️ **IMPORTANT INSTRUCTIONS:**
                 - Ensure the response is **valid JSON** with **NO extra text** before or after.
@@ -163,7 +163,7 @@ def validate_dataset(df, validation_rules):
         save_dir = "./data/output"
         os.makedirs(save_dir, exist_ok=True)
         # Save validation results
-        validation_json_path = os.path.join(save_dir, "extracted_validated_results.json")
+        validation_json_path = os.path.join(save_dir, "extracted_violation_results.json")
         with open(validation_json_path, "w") as f:
             json.dump(all_results, f, indent=4)
 

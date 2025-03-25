@@ -1,0 +1,4583 @@
+[
+    {
+        "rule_id": "1",
+        "description": "Report data as defined by the bank's financial spreading systems and credit policy.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "Data must be consistent with the bank's financial spreading systems and credit policy.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "2",
+        "description": "Report the most recent financial statement data available as of the report date.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "Data must reflect the most recent financial data in the consolidated holding company\u2019s financial spreading system as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "3",
+        "description": "NetSalesCurrent, OperatingIncome, DepreciationAmortization, InterestExpense, NetIncomeCurrent, and TotalLiabilities should be reported for the most recently available trailing twelve month (TTM) period.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "Values should represent the TTM period ending on the DateFinancials.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "4",
+        "description": "NetSalesPriorYear and NetIncomePriorYear should be reported for the TTM period ended one year prior to the date indicated in DateFinancials.",
+        "applicable_columns": [
+            "NetSalesPriorYear",
+            "NetIncomePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Values should represent the TTM period ending one year prior to DateFinancials.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "5",
+        "description": "If trailing twelve months of financial information is unavailable, provide the underwritten annual information for NetSalesCurrent, OperatingIncome, DepreciationAmortization, InterestExpense, NetIncomeCurrent and TotalLiabilities.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "If TTM data is unavailable, the underwritten annual information should be used.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "6",
+        "description": "If trailing twelve months of financial information is unavailable, provide the underwritten annual information for NetSalesPriorYear and NetIncomePriorYear.",
+        "applicable_columns": [
+            "NetSalesPriorYear",
+            "NetIncomePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "If TTM data is unavailable, the underwritten annual information should be used.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "7",
+        "description": "InternalObligorID must be a string.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "8",
+        "description": "ObligorName must be a string.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "High",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "9",
+        "description": "City must be a string.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "10",
+        "description": "Country must be a string.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "11",
+        "description": "ZipCodeForeignMailingCode must be a string.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "12",
+        "description": "IndustryCode must be a string.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "13",
+        "description": "IndustryCodeType must be a string.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "14",
+        "description": "InternalRating must be a string.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "15",
+        "description": "TIN must be a string.",
+        "applicable_columns": [
+            "TIN"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "16",
+        "description": "StockExchange must be a string.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "17",
+        "description": "TickerSymbol must be a string.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "18",
+        "description": "CUSIP must be a string.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "19",
+        "description": "FacilityType must be a string.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "20",
+        "description": "CreditFacilityPurpose must be a string.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "21",
+        "description": "LineReportedOnFRY9C must be a string.",
+        "applicable_columns": [
+            "LineReportedOnFRY9C"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "22",
+        "description": "LineOfBusiness must be a string.",
+        "applicable_columns": [
+            "LineOfBusiness"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "23",
+        "description": "ParticipationFlag must be a string.",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "24",
+        "description": "SecurityType must be a string.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "25",
+        "description": "InterestRateVariability must be a string.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "26",
+        "description": "InterestRateIndex must be a string.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "27",
+        "description": "TaxStatus must be a string.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "28",
+        "description": "GuarantorFlag must be a string.",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "29",
+        "description": "GuarantorName must be a string.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "30",
+        "description": "GuarantorTIN must be a string.",
+        "applicable_columns": [
+            "GuarantorTIN"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "31",
+        "description": "GuarantorInternalRiskRating must be a string.",
+        "applicable_columns": [
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "32",
+        "description": "EntityName must be a string.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "33",
+        "description": "EntityInternalRiskRating must be a string.",
+        "applicable_columns": [
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "34",
+        "description": "OriginationDate must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "35",
+        "description": "MaturityDate must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "36",
+        "description": "NonAccrualDate must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "NonAccrualDate"
+        ],
+        "severity": "Medium",
+        "condition": "Value must conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "37",
+        "description": "DateFinancials must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "DateFinancials"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "38",
+        "description": "DateLastAudit must be in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "DateLastAudit"
+        ],
+        "severity": "Medium",
+        "condition": "Value must conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "39",
+        "description": "CommittedExposure must be a float.",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "40",
+        "description": "UtilizedExposure must be a float.",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "41",
+        "description": "CumulativeChargeoffs must be a float.",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "42",
+        "description": "PastDue must be a float.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "43",
+        "description": "LienPosition must be an integer.",
+        "applicable_columns": [
+            "LienPosition"
+        ],
+        "severity": "Low",
+        "condition": "Value must be an integer.",
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "44",
+        "description": "InterestRate must be a float.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "45",
+        "description": "InterestRateSpread must be a float.",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "46",
+        "description": "InterestRateCeiling must be a float.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "47",
+        "description": "InterestRateFloor must be a float.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "48",
+        "description": "CustomerID must be a string.",
+        "applicable_columns": [
+            "CustomerID"
+        ],
+        "severity": "High",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "49",
+        "description": "InternalCreditFacilityID must be a string.",
+        "applicable_columns": [
+            "InternalCreditFacilityID"
+        ],
+        "severity": "High",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "50",
+        "description": "GuarantorInternalID must be a string.",
+        "applicable_columns": [
+            "GuarantorInternalID"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "51",
+        "description": "EntityInternalID must be a string.",
+        "applicable_columns": [
+            "EntityInternalID"
+        ],
+        "severity": "High",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "52",
+        "description": "OriginalInternalObligorID must be a string.",
+        "applicable_columns": [
+            "OriginalInternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "Value must be a text string.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "53",
+        "description": "Data should be provided in a single extensible markup language file (.xml).",
+        "applicable_columns": [
+            "CustomerID",
+            "InternalObligorID",
+            "OriginalInternalObligorID",
+            "ObligorName",
+            "City",
+            "Country",
+            "ZipCodeForeignMailingCode",
+            "IndustryCode",
+            "IndustryCodeType",
+            "InternalRating",
+            "TIN",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP",
+            "InternalCreditFacilityID",
+            "OriginationDate",
+            "MaturityDate",
+            "FacilityType",
+            "CreditFacilityPurpose",
+            "CommittedExposure",
+            "UtilizedExposure",
+            "LineReportedOnFRY9C",
+            "LineOfBusiness",
+            "CumulativeChargeoffs",
+            "PastDue",
+            "NonAccrualDate",
+            "ParticipationFlag",
+            "LienPosition",
+            "SecurityType",
+            "InterestRateVariability",
+            "InterestRate",
+            "InterestRateIndex",
+            "InterestRateSpread",
+            "InterestRateCeiling",
+            "InterestRateFloor",
+            "TaxStatus",
+            "GuarantorFlag",
+            "GuarantorInternalID",
+            "GuarantorName",
+            "GuarantorTIN",
+            "GuarantorInternalRiskRating",
+            "EntityInternalID",
+            "EntityName",
+            "EntityInternalRiskRating",
+            "DateFinancials",
+            "DateLastAudit",
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "Data must be submitted as a single .xml file.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "54",
+        "description": "No quotation marks should be used as text identifiers.",
+        "applicable_columns": [
+            "CustomerID",
+            "InternalObligorID",
+            "OriginalInternalObligorID",
+            "ObligorName",
+            "City",
+            "Country",
+            "ZipCodeForeignMailingCode",
+            "IndustryCode",
+            "IndustryCodeType",
+            "InternalRating",
+            "TIN",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP",
+            "InternalCreditFacilityID",
+            "FacilityType",
+            "CreditFacilityPurpose",
+            "LineReportedOnFRY9C",
+            "LineOfBusiness",
+            "ParticipationFlag",
+            "SecurityType",
+            "InterestRateVariability",
+            "InterestRateIndex",
+            "TaxStatus",
+            "GuarantorFlag",
+            "GuarantorInternalID",
+            "GuarantorName",
+            "GuarantorTIN",
+            "GuarantorInternalRiskRating",
+            "EntityInternalID",
+            "EntityName",
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Text fields should not contain quotation marks.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "55",
+        "description": "The file should not contain a header row or a row count.",
+        "applicable_columns": [
+            "CustomerID",
+            "InternalObligorID",
+            "OriginalInternalObligorID",
+            "ObligorName",
+            "City",
+            "Country",
+            "ZipCodeForeignMailingCode",
+            "IndustryCode",
+            "IndustryCodeType",
+            "InternalRating",
+            "TIN",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP",
+            "InternalCreditFacilityID",
+            "OriginationDate",
+            "MaturityDate",
+            "FacilityType",
+            "CreditFacilityPurpose",
+            "CommittedExposure",
+            "UtilizedExposure",
+            "LineReportedOnFRY9C",
+            "LineOfBusiness",
+            "CumulativeChargeoffs",
+            "PastDue",
+            "NonAccrualDate",
+            "ParticipationFlag",
+            "LienPosition",
+            "SecurityType",
+            "InterestRateVariability",
+            "InterestRate",
+            "InterestRateIndex",
+            "InterestRateSpread",
+            "InterestRateCeiling",
+            "InterestRateFloor",
+            "TaxStatus",
+            "GuarantorFlag",
+            "GuarantorInternalID",
+            "GuarantorName",
+            "GuarantorTIN",
+            "GuarantorInternalRiskRating",
+            "EntityInternalID",
+            "EntityName",
+            "EntityInternalRiskRating",
+            "DateFinancials",
+            "DateLastAudit",
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "The .xml file should not include a header row or any row count information.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "56",
+        "description": "InternalObligorID should not contain spaces.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "57",
+        "description": "ObligorName should not contain special characters other than hyphens or periods.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphanumeric characters, hyphens, or periods.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "58",
+        "description": "City should only contain alphabetic characters.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain letters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "59",
+        "description": "Country should be a valid ISO country code.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid ISO country code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "60",
+        "description": "IndustryCode should be a valid NAICS code.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid NAICS code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "61",
+        "description": "InternalRating should follow the bank's internal rating scale format.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must conform to the bank's internal rating scale.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "62",
+        "description": "FacilityType should be one of the predefined facility types.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value should match one of the allowed facility types.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "63",
+        "description": "CreditFacilityPurpose should be one of the predefined credit facility purposes.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Low",
+        "condition": "Value should match one of the allowed purposes.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "64",
+        "description": "LienPosition should be a positive integer.",
+        "applicable_columns": [
+            "LienPosition"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a positive whole number.",
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "65",
+        "description": "InterestRate should be within a reasonable range (e.g., 0 to 100).",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": "Value should be between 0 and 100.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "66",
+        "description": "InterestRateSpread should be within a reasonable range (e.g., -10 to 1000).",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": "Value should be between -10 and 1000.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "67",
+        "description": "CommittedExposure should be greater than or equal to UtilizedExposure.",
+        "applicable_columns": [
+            "CommittedExposure",
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": "CommittedExposure >= UtilizedExposure",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "68",
+        "description": "CumulativeChargeoffs should not be greater than CommittedExposure.",
+        "applicable_columns": [
+            "CumulativeChargeoffs",
+            "CommittedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "CumulativeChargeoffs <= CommittedExposure",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "69",
+        "description": "CurrentAssetsCurrent should be greater than AccountsReceivableCurrent.",
+        "applicable_columns": [
+            "CurrentAssetsCurrent",
+            "AccountsReceivableCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "CurrentAssetsCurrent > AccountsReceivableCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "70",
+        "description": "CurrentAssetsPriorYear should be greater than AccountsReceivablePriorYear.",
+        "applicable_columns": [
+            "CurrentAssetsPriorYear",
+            "AccountsReceivablePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "CurrentAssetsPriorYear > AccountsReceivablePriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "71",
+        "description": "TotalAssetsCurrent should be greater than CurrentAssetsCurrent.",
+        "applicable_columns": [
+            "TotalAssetsCurrent",
+            "CurrentAssetsCurrent"
+        ],
+        "severity": "High",
+        "condition": "TotalAssetsCurrent > CurrentAssetsCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "72",
+        "description": "TotalAssetsPriorYear should be greater than CurrentAssetsPriorYear.",
+        "applicable_columns": [
+            "TotalAssetsPriorYear",
+            "CurrentAssetsPriorYear"
+        ],
+        "severity": "High",
+        "condition": "TotalAssetsPriorYear > CurrentAssetsPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "73",
+        "description": "TotalLiabilities should be less than TotalAssetsCurrent.",
+        "applicable_columns": [
+            "TotalLiabilities",
+            "TotalAssetsCurrent"
+        ],
+        "severity": "High",
+        "condition": "TotalLiabilities < TotalAssetsCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "74",
+        "description": "TotalLiabilities should be less than TotalAssetsPriorYear.",
+        "applicable_columns": [
+            "TotalLiabilities",
+            "TotalAssetsPriorYear"
+        ],
+        "severity": "High",
+        "condition": "TotalLiabilities < TotalAssetsPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "75",
+        "description": "ShortTermDebt should be less than CurrentLiabilitiesCurrent.",
+        "applicable_columns": [
+            "ShortTermDebt",
+            "CurrentLiabilitiesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "ShortTermDebt < CurrentLiabilitiesCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "76",
+        "description": "ShortTermDebt should be less than CurrentLiabilitiesPriorYear.",
+        "applicable_columns": [
+            "ShortTermDebt",
+            "CurrentLiabilitiesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "ShortTermDebt < CurrentLiabilitiesPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "77",
+        "description": "The DateFinancials must be before the current date.",
+        "applicable_columns": [
+            "DateFinancials"
+        ],
+        "severity": "High",
+        "condition": "DateFinancials < current date",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "78",
+        "description": "The DateLastAudit must be before the current date.",
+        "applicable_columns": [
+            "DateLastAudit"
+        ],
+        "severity": "Medium",
+        "condition": "DateLastAudit < current date",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "79",
+        "description": "The MaturityDate must be after the OriginationDate.",
+        "applicable_columns": [
+            "MaturityDate",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "MaturityDate > OriginationDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "80",
+        "description": "If NonAccrualDate is populated, it must be after the OriginationDate.",
+        "applicable_columns": [
+            "NonAccrualDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "If NonAccrualDate is present, then NonAccrualDate > OriginationDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "81",
+        "description": "GuarantorInternalID should not be equal to InternalObligorID if GuarantorFlag is 'Yes'.",
+        "applicable_columns": [
+            "GuarantorInternalID",
+            "InternalObligorID",
+            "GuarantorFlag"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorInternalID != InternalObligorID",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "82",
+        "description": "If GuarantorFlag is 'Yes', then GuarantorName should be populated.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "GuarantorName"
+        ],
+        "severity": "High",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorName is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "83",
+        "description": "EntityInternalID should not be equal to InternalObligorID.",
+        "applicable_columns": [
+            "EntityInternalID",
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "EntityInternalID != InternalObligorID",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "84",
+        "description": "If the StockExchange is populated, then the TickerSymbol should also be populated.",
+        "applicable_columns": [
+            "StockExchange",
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange is present, then TickerSymbol is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "85",
+        "description": "If the StockExchange is populated, then the CUSIP should also be populated.",
+        "applicable_columns": [
+            "StockExchange",
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange is present, then CUSIP is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "86",
+        "description": "IndustryCodeType must be one of the allowed types",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": "Value should match one of the allowed industry code types.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "87",
+        "description": "OriginalInternalObligorID should not contain spaces.",
+        "applicable_columns": [
+            "OriginalInternalObligorID"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "88",
+        "description": "GuarantorName should not contain special characters other than hyphens or periods.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphanumeric characters, hyphens, or periods.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "89",
+        "description": "EntityName should not contain special characters other than hyphens or periods.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphanumeric characters, hyphens, or periods.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "90",
+        "description": "DateFinancials must be after DateLastAudit.",
+        "applicable_columns": [
+            "DateFinancials",
+            "DateLastAudit"
+        ],
+        "severity": "Medium",
+        "condition": "DateFinancials > DateLastAudit",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "91",
+        "description": "AccountsReceivableCurrent should be less than or equal to NetSalesCurrent.",
+        "applicable_columns": [
+            "AccountsReceivableCurrent",
+            "NetSalesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "AccountsReceivableCurrent <= NetSalesCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "92",
+        "description": "AccountsReceivablePriorYear should be less than or equal to NetSalesPriorYear.",
+        "applicable_columns": [
+            "AccountsReceivablePriorYear",
+            "NetSalesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "AccountsReceivablePriorYear <= NetSalesPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "93",
+        "description": "InventoryCurrent should be less than or equal to CurrentAssetsCurrent.",
+        "applicable_columns": [
+            "InventoryCurrent",
+            "CurrentAssetsCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "InventoryCurrent <= CurrentAssetsCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "94",
+        "description": "InventoryPriorYear should be less than or equal to CurrentAssetsPriorYear.",
+        "applicable_columns": [
+            "InventoryPriorYear",
+            "CurrentAssetsPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "InventoryPriorYear <= CurrentAssetsPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "95",
+        "description": "AccountsPayableCurrent should be less than or equal to CurrentLiabilitiesCurrent.",
+        "applicable_columns": [
+            "AccountsPayableCurrent",
+            "CurrentLiabilitiesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "AccountsPayableCurrent <= CurrentLiabilitiesCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "96",
+        "description": "AccountsPayablePriorYear should be less than or equal to CurrentLiabilitiesPriorYear.",
+        "applicable_columns": [
+            "AccountsPayablePriorYear",
+            "CurrentLiabilitiesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "AccountsPayablePriorYear <= CurrentLiabilitiesPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "97",
+        "description": "CurrentMaturitiesLongTermDebt should be less than or equal to LongTermDebt.",
+        "applicable_columns": [
+            "CurrentMaturitiesLongTermDebt",
+            "LongTermDebt"
+        ],
+        "severity": "Medium",
+        "condition": "CurrentMaturitiesLongTermDebt <= LongTermDebt",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "98",
+        "description": "The absolute difference between NetSalesCurrent and NetSalesPriorYear should be within a reasonable percentage.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "NetSalesPriorYear"
+        ],
+        "severity": "Low",
+        "condition": "ABS(NetSalesCurrent - NetSalesPriorYear) / NetSalesPriorYear <= 0.5",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "99",
+        "description": "The absolute difference between NetIncomeCurrent and NetIncomePriorYear should be within a reasonable percentage.",
+        "applicable_columns": [
+            "NetIncomeCurrent",
+            "NetIncomePriorYear"
+        ],
+        "severity": "Low",
+        "condition": "ABS(NetIncomeCurrent - NetIncomePriorYear) / NetIncomePriorYear <= 0.5",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "100",
+        "description": "OperatingIncome should be less than or equal to NetSalesCurrent.",
+        "applicable_columns": [
+            "OperatingIncome",
+            "NetSalesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "OperatingIncome <= NetSalesCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "101",
+        "description": "The ZipCodeForeignMailingCode should conform to the format for the specified Country.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "ZipCodeForeignMailingCode format matches Country's postal code format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "102",
+        "description": "TIN should conform to the format for the specified Country.",
+        "applicable_columns": [
+            "TIN",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "TIN format matches Country's tax identification number format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "103",
+        "description": "StockExchange should be a valid stock exchange code.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a valid stock exchange code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "104",
+        "description": "TickerSymbol should be a valid symbol for the StockExchange.",
+        "applicable_columns": [
+            "TickerSymbol",
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "TickerSymbol must be a valid symbol listed on StockExchange.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "105",
+        "description": "If InterestRateVariability is 'Variable', then InterestRateIndex should be populated.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateIndex"
+        ],
+        "severity": "Medium",
+        "condition": "If InterestRateVariability = 'Variable', then InterestRateIndex is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "106",
+        "description": "If InterestRateVariability is 'Variable', then InterestRateSpread should be populated.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": "If InterestRateVariability = 'Variable', then InterestRateSpread is not null.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "107",
+        "description": "If InterestRateVariability is 'Capped', then InterestRateCeiling should be populated.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateVariability = 'Capped', then InterestRateCeiling is not null.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "108",
+        "description": "If InterestRateVariability is 'Floored', then InterestRateFloor should be populated.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateVariability = 'Floored', then InterestRateFloor is not null.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "109",
+        "description": "If InterestRateCeiling is populated, it should be greater than or equal to InterestRate.",
+        "applicable_columns": [
+            "InterestRateCeiling",
+            "InterestRate"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateCeiling is present, then InterestRateCeiling >= InterestRate.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "110",
+        "description": "If InterestRateFloor is populated, it should be less than or equal to InterestRate.",
+        "applicable_columns": [
+            "InterestRateFloor",
+            "InterestRate"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateFloor is present, then InterestRateFloor <= InterestRate.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "111",
+        "description": "If GuarantorFlag is 'Yes', then GuarantorInternalRiskRating should be populated.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorInternalRiskRating is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "112",
+        "description": "PastDue should not be greater than UtilizedExposure.",
+        "applicable_columns": [
+            "PastDue",
+            "UtilizedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "PastDue <= UtilizedExposure",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "113",
+        "description": "InternalObligorID should not be equal to GuarantorInternalID.",
+        "applicable_columns": [
+            "InternalObligorID",
+            "GuarantorInternalID"
+        ],
+        "severity": "High",
+        "condition": "InternalObligorID != GuarantorInternalID",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "114",
+        "description": "PastDue should be greater than or equal to zero.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": "PastDue >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "115",
+        "description": "CumulativeChargeoffs should be greater than or equal to zero.",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": "CumulativeChargeoffs >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "116",
+        "description": "UtilizedExposure should be greater than or equal to zero.",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": "UtilizedExposure >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "117",
+        "description": "CommittedExposure should be greater than or equal to zero.",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": "CommittedExposure >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "118",
+        "description": "TotalAssetsCurrent should be greater than or equal to zero.",
+        "applicable_columns": [
+            "TotalAssetsCurrent"
+        ],
+        "severity": "High",
+        "condition": "TotalAssetsCurrent >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "119",
+        "description": "TotalAssetsPriorYear should be greater than or equal to zero.",
+        "applicable_columns": [
+            "TotalAssetsPriorYear"
+        ],
+        "severity": "High",
+        "condition": "TotalAssetsPriorYear >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "120",
+        "description": "TotalLiabilities should be greater than or equal to zero.",
+        "applicable_columns": [
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "TotalLiabilities >= 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "121",
+        "description": "If LineOfBusiness is 'Real Estate', then City, Country, and ZipCodeForeignMailingCode should be populated.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "City",
+            "Country",
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Medium",
+        "condition": "If LineOfBusiness = 'Real Estate', then City, Country, and ZipCodeForeignMailingCode are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "122",
+        "description": "If the ParticipationFlag is 'Yes', then multiple InternalCreditFacilityID should exist for the same InternalObligorID.",
+        "applicable_columns": [
+            "ParticipationFlag",
+            "InternalCreditFacilityID",
+            "InternalObligorID"
+        ],
+        "severity": "Low",
+        "condition": "If ParticipationFlag = 'Yes', then there must be multiple InternalCreditFacilityID for the same InternalObligorID.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "123",
+        "description": "If the InterestRate is populated, then InterestRateIndex should also be populated.",
+        "applicable_columns": [
+            "InterestRate",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRate is present, then InterestRateIndex is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "124",
+        "description": "If the InterestRateSpread is populated, then InterestRateIndex should also be populated.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateSpread is present, then InterestRateIndex is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "125",
+        "description": "If the InterestRateCeiling is populated, then InterestRateIndex should also be populated.",
+        "applicable_columns": [
+            "InterestRateCeiling",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateCeiling is present, then InterestRateIndex is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "126",
+        "description": "If the InterestRateFloor is populated, then InterestRateIndex should also be populated.",
+        "applicable_columns": [
+            "InterestRateFloor",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateFloor is present, then InterestRateIndex is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "127",
+        "description": "If the InterestRateIndex is populated, then InterestRateSpread should also be populated.",
+        "applicable_columns": [
+            "InterestRateIndex",
+            "InterestRateSpread"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateIndex is present, then InterestRateSpread is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "128",
+        "description": "IndustryCodeType must not contain spaces.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "129",
+        "description": "IndustryCode must not contain spaces.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "130",
+        "description": "InternalRating must not contain spaces.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "131",
+        "description": "FacilityType must not contain spaces.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "132",
+        "description": "CreditFacilityPurpose must not contain spaces.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "133",
+        "description": "LineOfBusiness must not contain spaces.",
+        "applicable_columns": [
+            "LineOfBusiness"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "134",
+        "description": "SecurityType must not contain spaces.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "135",
+        "description": "InterestRateVariability must not contain spaces.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "136",
+        "description": "InterestRateIndex must not contain spaces.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "137",
+        "description": "TaxStatus must not contain spaces.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "138",
+        "description": "GuarantorInternalRiskRating must not contain spaces.",
+        "applicable_columns": [
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "139",
+        "description": "EntityInternalRiskRating must not contain spaces.",
+        "applicable_columns": [
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "140",
+        "description": "ObligorName should be at least 3 characters long.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should be at least 3 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "141",
+        "description": "GuarantorName should be at least 3 characters long.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should be at least 3 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "142",
+        "description": "EntityName should be at least 3 characters long.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "Value should be at least 3 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "143",
+        "description": "InternalRating should follow a specific pattern.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should match the pattern ^[A-Z]+[0-9]+$",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "144",
+        "description": "GuarantorInternalRiskRating should follow a specific pattern.",
+        "applicable_columns": [
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should match the pattern ^[A-Z]+[0-9]+$",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "145",
+        "description": "EntityInternalRiskRating should follow a specific pattern.",
+        "applicable_columns": [
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should match the pattern ^[A-Z]+[0-9]+$",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "146",
+        "description": "OriginalInternalObligorID should be present and not empty.",
+        "applicable_columns": [
+            "OriginalInternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "147",
+        "description": "CustomerID should be present and not empty.",
+        "applicable_columns": [
+            "CustomerID"
+        ],
+        "severity": "High",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "148",
+        "description": "InternalCreditFacilityID should be present and not empty.",
+        "applicable_columns": [
+            "InternalCreditFacilityID"
+        ],
+        "severity": "High",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "149",
+        "description": "ObligorName should be present and not empty.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "High",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "150",
+        "description": "EntityInternalID should be present and not empty.",
+        "applicable_columns": [
+            "EntityInternalID"
+        ],
+        "severity": "High",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "151",
+        "description": "InternalObligorID should be present and not empty.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "152",
+        "description": "IndustryCode should be present and not empty.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "153",
+        "description": "The MaturityDate must be in the future.",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": "MaturityDate > current date",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "154",
+        "description": "OriginationDate should not be in the future.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "OriginationDate <= current date",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "155",
+        "description": "IndustryCodeType should be selected from a predefined list.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be from the allowed list of industry code types.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "156",
+        "description": "FacilityType should be selected from a predefined list.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be from the allowed list of facility types.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "157",
+        "description": "CreditFacilityPurpose should be selected from a predefined list.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Low",
+        "condition": "Value must be from the allowed list of credit facility purposes.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "158",
+        "description": "InterestRateVariability should be selected from a predefined list.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "Value must be from the allowed list of interest rate variability types.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "159",
+        "description": "TaxStatus should be selected from a predefined list.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": "Value must be from the allowed list of tax statuses.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "160",
+        "description": "ParticipationFlag should be either 'Yes' or 'No'.",
+        "applicable_columns": [
+            "ParticipationFlag"
+        ],
+        "severity": "Low",
+        "condition": "Value must be either 'Yes' or 'No'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "161",
+        "description": "GuarantorFlag should be either 'Yes' or 'No'.",
+        "applicable_columns": [
+            "GuarantorFlag"
+        ],
+        "severity": "Low",
+        "condition": "Value must be either 'Yes' or 'No'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "162",
+        "description": "LienPosition should be between 1 and 10.",
+        "applicable_columns": [
+            "LienPosition"
+        ],
+        "severity": "Low",
+        "condition": "Value must be between 1 and 10.",
+        "expected_data_type": "integer"
+    },
+    {
+        "rule_id": "163",
+        "description": "InterestRate should be a non-negative number.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "164",
+        "description": "InterestRateSpread should be within a reasonable range (e.g., -100 to 1000).",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": "Value should be between -100 and 1000.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "165",
+        "description": "InterestRateCeiling should be within a reasonable range (e.g., 0 to 100).",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "Value should be between 0 and 100.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "166",
+        "description": "InterestRateFloor should be within a reasonable range (e.g., 0 to 100).",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "Value should be between 0 and 100.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "167",
+        "description": "If TickerSymbol is populated, StockExchange must also be populated.",
+        "applicable_columns": [
+            "TickerSymbol",
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "If TickerSymbol is present, then StockExchange is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "168",
+        "description": "If CUSIP is populated, StockExchange must also be populated.",
+        "applicable_columns": [
+            "CUSIP",
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "If CUSIP is present, then StockExchange is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "169",
+        "description": "If NonAccrualDate is populated, it must be before the MaturityDate.",
+        "applicable_columns": [
+            "NonAccrualDate",
+            "MaturityDate"
+        ],
+        "severity": "Medium",
+        "condition": "If NonAccrualDate is present, then NonAccrualDate < MaturityDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "170",
+        "description": "If NonAccrualDate is populated, it must be before the current date.",
+        "applicable_columns": [
+            "NonAccrualDate"
+        ],
+        "severity": "Medium",
+        "condition": "If NonAccrualDate is present, then NonAccrualDate < current date",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "171",
+        "description": "The difference between TotalAssetsCurrent and TotalLiabilities should be reasonable.",
+        "applicable_columns": [
+            "TotalAssetsCurrent",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "(TotalAssetsCurrent - TotalLiabilities) > 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "172",
+        "description": "The difference between TotalAssetsPriorYear and TotalLiabilities should be reasonable.",
+        "applicable_columns": [
+            "TotalAssetsPriorYear",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "(TotalAssetsPriorYear - TotalLiabilities) > 0",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "173",
+        "description": "If GuarantorFlag is 'Yes', then GuarantorTIN should be populated.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "GuarantorTIN"
+        ],
+        "severity": "Low",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorTIN is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "174",
+        "description": "If GuarantorFlag is 'Yes', then GuarantorInternalID should be populated.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "GuarantorInternalID"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorInternalID is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "175",
+        "description": "If LineReportedOnFRY9C is populated, it should be from a predefined list.",
+        "applicable_columns": [
+            "LineReportedOnFRY9C"
+        ],
+        "severity": "Low",
+        "condition": "Value must be from the allowed list of FRY9C lines.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "176",
+        "description": "The TickerSymbol should not contain spaces.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "177",
+        "description": "The CUSIP should not contain spaces.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "Value should not contain any whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "178",
+        "description": "If the InterestRate is populated, then InterestRateVariability should also be populated.",
+        "applicable_columns": [
+            "InterestRate",
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRate is present, then InterestRateVariability is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "179",
+        "description": "If the InterestRateSpread is populated, then InterestRateVariability should also be populated.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateSpread is present, then InterestRateVariability is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "180",
+        "description": "If the InterestRateCeiling is populated, then InterestRateVariability should also be populated.",
+        "applicable_columns": [
+            "InterestRateCeiling",
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateCeiling is present, then InterestRateVariability is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "181",
+        "description": "If the InterestRateFloor is populated, then InterestRateVariability should also be populated.",
+        "applicable_columns": [
+            "InterestRateFloor",
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateFloor is present, then InterestRateVariability is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "182",
+        "description": "If DateLastAudit is populated, it must be before DateFinancials.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "DateFinancials"
+        ],
+        "severity": "Medium",
+        "condition": "If DateLastAudit is present, then DateLastAudit < DateFinancials",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "183",
+        "description": "If DateFinancials is populated, it must be after OriginationDate.",
+        "applicable_columns": [
+            "DateFinancials",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "If DateFinancials is present, then DateFinancials > OriginationDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "184",
+        "description": "If DateLastAudit is populated, it must be after OriginationDate.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "If DateLastAudit is present, then DateLastAudit > OriginationDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "185",
+        "description": "If DateFinancials is populated, it must be before MaturityDate.",
+        "applicable_columns": [
+            "DateFinancials",
+            "MaturityDate"
+        ],
+        "severity": "Medium",
+        "condition": "If DateFinancials is present, then DateFinancials < MaturityDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "186",
+        "description": "If DateLastAudit is populated, it must be before MaturityDate.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "MaturityDate"
+        ],
+        "severity": "Medium",
+        "condition": "If DateLastAudit is present, then DateLastAudit < MaturityDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "187",
+        "description": "ObligorName should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "188",
+        "description": "GuarantorName should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "189",
+        "description": "EntityName should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "190",
+        "description": "City should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "191",
+        "description": "Country should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "192",
+        "description": "ZipCodeForeignMailingCode should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "193",
+        "description": "TIN should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "TIN"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "194",
+        "description": "StockExchange should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "195",
+        "description": "TickerSymbol should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "196",
+        "description": "CUSIP should not contain leading or trailing spaces.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start or end with whitespace characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "197",
+        "description": "IndustryCode should be a valid NAICS code with 6 digits.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid NAICS code of length 6.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "198",
+        "description": "TickerSymbol should be in uppercase.",
+        "applicable_columns": [
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "Value should be in uppercase.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "199",
+        "description": "The length of the CUSIP should be 9 characters.",
+        "applicable_columns": [
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "Value should be 9 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "200",
+        "description": "The length of the TIN should be less than 20 characters.",
+        "applicable_columns": [
+            "TIN"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 20 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "201",
+        "description": "The length of the ZipCodeForeignMailingCode should be less than 15 characters.",
+        "applicable_columns": [
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 15 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "202",
+        "description": "The length of the City should be less than 50 characters.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "203",
+        "description": "If a date is specified, but the format is datetime, provide YYYY-MM-DD as the date.",
+        "applicable_columns": [
+            "OriginationDate",
+            "MaturityDate",
+            "NonAccrualDate",
+            "DateFinancials",
+            "DateLastAudit"
+        ],
+        "severity": "Medium",
+        "condition": "Date values should be in YYYY-MM-DD format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "204",
+        "description": "All fields should be contained in the submission file.",
+        "applicable_columns": [
+            "CustomerID",
+            "InternalObligorID",
+            "OriginalInternalObligorID",
+            "ObligorName",
+            "City",
+            "Country",
+            "ZipCodeForeignMailingCode",
+            "IndustryCode",
+            "IndustryCodeType",
+            "InternalRating",
+            "TIN",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP",
+            "InternalCreditFacilityID",
+            "OriginationDate",
+            "MaturityDate",
+            "FacilityType",
+            "CreditFacilityPurpose",
+            "CommittedExposure",
+            "UtilizedExposure",
+            "LineReportedOnFRY9C",
+            "LineOfBusiness",
+            "CumulativeChargeoffs",
+            "PastDue",
+            "NonAccrualDate",
+            "ParticipationFlag",
+            "LienPosition",
+            "SecurityType",
+            "InterestRateVariability",
+            "InterestRate",
+            "InterestRateIndex",
+            "InterestRateSpread",
+            "InterestRateCeiling",
+            "InterestRateFloor",
+            "TaxStatus",
+            "GuarantorFlag",
+            "GuarantorInternalID",
+            "GuarantorName",
+            "GuarantorTIN",
+            "GuarantorInternalRiskRating",
+            "EntityInternalID",
+            "EntityName",
+            "EntityInternalRiskRating",
+            "DateFinancials",
+            "DateLastAudit",
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "All columns defined in the schema must be present in the data submission.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "205",
+        "description": "If InterestRateCeiling and InterestRateFloor are populated, then InterestRateCeiling should be greater than or equal to InterestRateFloor.",
+        "applicable_columns": [
+            "InterestRateCeiling",
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateCeiling and InterestRateFloor are present, then InterestRateCeiling >= InterestRateFloor.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "206",
+        "description": "The length of the CustomerID should be less than 50 characters.",
+        "applicable_columns": [
+            "CustomerID"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "207",
+        "description": "The length of the InternalObligorID should be less than 50 characters.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "208",
+        "description": "The length of the OriginalInternalObligorID should be less than 50 characters.",
+        "applicable_columns": [
+            "OriginalInternalObligorID"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "209",
+        "description": "The length of the ObligorName should be less than 200 characters.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 200 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "210",
+        "description": "The length of the GuarantorName should be less than 200 characters.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 200 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "211",
+        "description": "The length of the EntityName should be less than 200 characters.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 200 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "212",
+        "description": "The length of the InternalCreditFacilityID should be less than 50 characters.",
+        "applicable_columns": [
+            "InternalCreditFacilityID"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "213",
+        "description": "The length of the GuarantorInternalID should be less than 50 characters.",
+        "applicable_columns": [
+            "GuarantorInternalID"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "214",
+        "description": "The length of the EntityInternalID should be less than 50 characters.",
+        "applicable_columns": [
+            "EntityInternalID"
+        ],
+        "severity": "Low",
+        "condition": "Value should be less than 50 characters long.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "215",
+        "description": "InterestRateSpread should be less than or equal to InterestRateCeiling.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateCeiling is present, InterestRateSpread <= InterestRateCeiling",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "216",
+        "description": "InterestRateSpread should be greater than or equal to InterestRateFloor.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateFloor is present, InterestRateSpread >= InterestRateFloor",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "217",
+        "description": "TIN should be present if Country is 'US'.",
+        "applicable_columns": [
+            "TIN",
+            "Country"
+        ],
+        "severity": "Medium",
+        "condition": "If Country = 'US', then TIN is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "218",
+        "description": "If UtilizedExposure is greater than zero, then OriginationDate must be populated.",
+        "applicable_columns": [
+            "UtilizedExposure",
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "If UtilizedExposure > 0, then OriginationDate is not null or empty.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "219",
+        "description": "If UtilizedExposure is greater than zero, then MaturityDate must be populated.",
+        "applicable_columns": [
+            "UtilizedExposure",
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": "If UtilizedExposure > 0, then MaturityDate is not null or empty.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "220",
+        "description": "If CumulativeChargeoffs is greater than zero, then NonAccrualDate must be populated.",
+        "applicable_columns": [
+            "CumulativeChargeoffs",
+            "NonAccrualDate"
+        ],
+        "severity": "Medium",
+        "condition": "If CumulativeChargeoffs > 0, then NonAccrualDate is not null or empty.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "221",
+        "description": "If PastDue is greater than zero, then NonAccrualDate must be populated.",
+        "applicable_columns": [
+            "PastDue",
+            "NonAccrualDate"
+        ],
+        "severity": "Medium",
+        "condition": "If PastDue > 0, then NonAccrualDate is not null or empty.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "222",
+        "description": "If the IndustryCodeType is 'SIC', then IndustryCode should be a 4-digit code.",
+        "applicable_columns": [
+            "IndustryCodeType",
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "If IndustryCodeType = 'SIC', then IndustryCode length = 4.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "223",
+        "description": "If the IndustryCodeType is 'NAICS', then IndustryCode should be a 6-digit code.",
+        "applicable_columns": [
+            "IndustryCodeType",
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "If IndustryCodeType = 'NAICS', then IndustryCode length = 6.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "224",
+        "description": "If there is a Guarantor, the GuarantorName should be different from the ObligorName.",
+        "applicable_columns": [
+            "GuarantorName",
+            "ObligorName",
+            "GuarantorFlag"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorName != ObligorName",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "225",
+        "description": "If DateLastAudit is populated, it must be at least 30 days before DateFinancials.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "DateFinancials"
+        ],
+        "severity": "Medium",
+        "condition": "If DateLastAudit is present, then DateLastAudit is at least 30 days before DateFinancials.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "226",
+        "description": "If DateLastAudit is populated, it should not be more than 365 days before DateFinancials.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "DateFinancials"
+        ],
+        "severity": "Medium",
+        "condition": "If DateLastAudit is present, then DateLastAudit is not more than 365 days before DateFinancials.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "227",
+        "description": "The sum of CurrentLiabilitiesCurrent and LongTermDebt should be less than or equal to TotalLiabilities.",
+        "applicable_columns": [
+            "CurrentLiabilitiesCurrent",
+            "LongTermDebt",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "CurrentLiabilitiesCurrent + LongTermDebt <= TotalLiabilities",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "228",
+        "description": "The sum of AccountsReceivableCurrent and InventoryCurrent should be less than or equal to CurrentAssetsCurrent.",
+        "applicable_columns": [
+            "AccountsReceivableCurrent",
+            "InventoryCurrent",
+            "CurrentAssetsCurrent"
+        ],
+        "severity": "High",
+        "condition": "AccountsReceivableCurrent + InventoryCurrent <= CurrentAssetsCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "229",
+        "description": "The sum of AccountsReceivablePriorYear and InventoryPriorYear should be less than or equal to CurrentAssetsPriorYear.",
+        "applicable_columns": [
+            "AccountsReceivablePriorYear",
+            "InventoryPriorYear",
+            "CurrentAssetsPriorYear"
+        ],
+        "severity": "High",
+        "condition": "AccountsReceivablePriorYear + InventoryPriorYear <= CurrentAssetsPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "230",
+        "description": "The CumulativeChargeoffs should be less than or equal to the CommittedExposure.",
+        "applicable_columns": [
+            "CumulativeChargeoffs",
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": "CumulativeChargeoffs <= CommittedExposure",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "231",
+        "description": "If UtilizedExposure is populated, it should be less than or equal to CommittedExposure.",
+        "applicable_columns": [
+            "UtilizedExposure",
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": "If UtilizedExposure is present, then UtilizedExposure <= CommittedExposure.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "232",
+        "description": "If CumulativeChargeoffs is populated, it should be less than or equal to CommittedExposure.",
+        "applicable_columns": [
+            "CumulativeChargeoffs",
+            "CommittedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "If CumulativeChargeoffs is present, then CumulativeChargeoffs <= CommittedExposure.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "233",
+        "description": "If PastDue is populated, it should be less than or equal to UtilizedExposure.",
+        "applicable_columns": [
+            "PastDue",
+            "UtilizedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "If PastDue is present, then PastDue <= UtilizedExposure.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "234",
+        "description": "If ShortTermDebt is populated, it should be less than or equal to CurrentLiabilitiesCurrent.",
+        "applicable_columns": [
+            "ShortTermDebt",
+            "CurrentLiabilitiesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "If ShortTermDebt is present, then ShortTermDebt <= CurrentLiabilitiesCurrent.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "235",
+        "description": "If ShortTermDebt is populated, it should be less than or equal to CurrentLiabilitiesPriorYear.",
+        "applicable_columns": [
+            "ShortTermDebt",
+            "CurrentLiabilitiesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "If ShortTermDebt is present, then ShortTermDebt <= CurrentLiabilitiesPriorYear.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "236",
+        "description": "If CurrentMaturitiesLongTermDebt is populated, it should be less than or equal to LongTermDebt.",
+        "applicable_columns": [
+            "CurrentMaturitiesLongTermDebt",
+            "LongTermDebt"
+        ],
+        "severity": "Medium",
+        "condition": "If CurrentMaturitiesLongTermDebt is present, then CurrentMaturitiesLongTermDebt <= LongTermDebt.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "237",
+        "description": "The InterestRateSpread should be within a reasonable range based on the InterestRateIndex.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "InterestRateSpread should be within a predefined range specific to InterestRateIndex.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "238",
+        "description": "If the ParticipationFlag is 'Yes', then CommittedExposure should be greater than zero.",
+        "applicable_columns": [
+            "ParticipationFlag",
+            "CommittedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "If ParticipationFlag = 'Yes', then CommittedExposure > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "239",
+        "description": "If the ParticipationFlag is 'Yes', then UtilizedExposure should be greater than zero.",
+        "applicable_columns": [
+            "ParticipationFlag",
+            "UtilizedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "If ParticipationFlag = 'Yes', then UtilizedExposure > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "240",
+        "description": "If the GuarantorFlag is 'Yes', then CommittedExposure should be greater than zero.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "CommittedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then CommittedExposure > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "241",
+        "description": "If the GuarantorFlag is 'Yes', then UtilizedExposure should be greater than zero.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "UtilizedExposure"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then UtilizedExposure > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "242",
+        "description": "If LineOfBusiness is 'Healthcare', then DateLastAudit must be within the last 18 months.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "DateLastAudit",
+            "DateFinancials"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Healthcare', then DateLastAudit is within 18 months of DateFinancials.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "243",
+        "description": "If LineOfBusiness is 'Technology', then NetSalesCurrent should be greater than zero.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "NetSalesCurrent"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Technology', then NetSalesCurrent > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "244",
+        "description": "If LineOfBusiness is 'Manufacturing', then TangibleAssets should be greater than zero.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "TangibleAssets"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Manufacturing', then TangibleAssets > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "245",
+        "description": "If LineOfBusiness is 'Retail', then InventoryCurrent should be greater than zero.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "InventoryCurrent"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Retail', then InventoryCurrent > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "246",
+        "description": "If LienPosition is 1, then SecurityType should be populated.",
+        "applicable_columns": [
+            "LienPosition",
+            "SecurityType"
+        ],
+        "severity": "Low",
+        "condition": "If LienPosition = 1, then SecurityType is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "247",
+        "description": "If NonAccrualDate is populated, then PastDue should be greater than zero.",
+        "applicable_columns": [
+            "NonAccrualDate",
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": "If NonAccrualDate is present, then PastDue > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "248",
+        "description": "If NonAccrualDate is populated, then CumulativeChargeoffs should be greater than zero.",
+        "applicable_columns": [
+            "NonAccrualDate",
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": "If NonAccrualDate is present, then CumulativeChargeoffs > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "249",
+        "description": "If a GuarantorTIN is populated, the Country must be populated.",
+        "applicable_columns": [
+            "GuarantorTIN",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "If GuarantorTIN is present, then Country is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "250",
+        "description": "If a GuarantorTIN is populated, the GuarantorFlag must be 'Yes'.",
+        "applicable_columns": [
+            "GuarantorTIN",
+            "GuarantorFlag"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorTIN is present, then GuarantorFlag = 'Yes'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "251",
+        "description": "If a StockExchange is populated, then the Country must be populated.",
+        "applicable_columns": [
+            "StockExchange",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange is present, then Country is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "252",
+        "description": "If the CUSIP is populated, the IndustryCode must be populated.",
+        "applicable_columns": [
+            "CUSIP",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If CUSIP is present, then IndustryCode is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "253",
+        "description": "If the TickerSymbol is populated, the IndustryCode must be populated.",
+        "applicable_columns": [
+            "TickerSymbol",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If TickerSymbol is present, then IndustryCode is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "254",
+        "description": "If the GuarantorInternalID is populated, the GuarantorInternalRiskRating must be populated.",
+        "applicable_columns": [
+            "GuarantorInternalID",
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorInternalID is present, then GuarantorInternalRiskRating is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "255",
+        "description": "If the EntityInternalID is populated, the EntityInternalRiskRating must be populated.",
+        "applicable_columns": [
+            "EntityInternalID",
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "If EntityInternalID is present, then EntityInternalRiskRating is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "256",
+        "description": "InternalObligorID should only contain alphanumeric characters and hyphens.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain alphanumeric characters and hyphens.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "257",
+        "description": "IndustryCode should only contain numeric characters.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain numeric characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "258",
+        "description": "IndustryCodeType should only contain uppercase characters.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "259",
+        "description": "InternalRating should only contain uppercase characters and numbers.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain uppercase characters and numbers.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "260",
+        "description": "StockExchange should only contain uppercase characters.",
+        "applicable_columns": [
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "261",
+        "description": "FacilityType should only contain uppercase characters.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "262",
+        "description": "CreditFacilityPurpose should only contain uppercase characters.",
+        "applicable_columns": [
+            "CreditFacilityPurpose"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "263",
+        "description": "LineReportedOnFRY9C should only contain uppercase characters and numbers.",
+        "applicable_columns": [
+            "LineReportedOnFRY9C"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters and numbers.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "264",
+        "description": "LineOfBusiness should only contain uppercase characters.",
+        "applicable_columns": [
+            "LineOfBusiness"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "265",
+        "description": "SecurityType should only contain uppercase characters.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "266",
+        "description": "InterestRateVariability should only contain uppercase characters.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "267",
+        "description": "InterestRateIndex should only contain uppercase characters.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "268",
+        "description": "TaxStatus should only contain uppercase characters.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain uppercase characters.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "269",
+        "description": "GuarantorInternalRiskRating should only contain uppercase characters and numbers.",
+        "applicable_columns": [
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain uppercase characters and numbers.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "270",
+        "description": "EntityInternalRiskRating should only contain uppercase characters and numbers.",
+        "applicable_columns": [
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value should only contain uppercase characters and numbers.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "271",
+        "description": "OriginationDate should be a valid date in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "Value must be a valid date and conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "272",
+        "description": "MaturityDate should be a valid date in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": "Value must be a valid date and conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "273",
+        "description": "NonAccrualDate should be a valid date in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "NonAccrualDate"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid date and conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "274",
+        "description": "DateFinancials should be a valid date in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "DateFinancials"
+        ],
+        "severity": "High",
+        "condition": "Value must be a valid date and conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "275",
+        "description": "DateLastAudit should be a valid date in YYYY-MM-DD format.",
+        "applicable_columns": [
+            "DateLastAudit"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid date and conform to the YYYY-MM-DD date format.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "276",
+        "description": "CommittedExposure should be a non-negative number.",
+        "applicable_columns": [
+            "CommittedExposure"
+        ],
+        "severity": "High",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "277",
+        "description": "UtilizedExposure should be a non-negative number.",
+        "applicable_columns": [
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "278",
+        "description": "CumulativeChargeoffs should be a non-negative number.",
+        "applicable_columns": [
+            "CumulativeChargeoffs"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "279",
+        "description": "PastDue should be a non-negative number.",
+        "applicable_columns": [
+            "PastDue"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "280",
+        "description": "InterestRate should be a non-negative number.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "281",
+        "description": "InterestRateSpread should be a number within a reasonable range.",
+        "applicable_columns": [
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be within the range of -100 to 1000.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "282",
+        "description": "InterestRateCeiling should be a non-negative number.",
+        "applicable_columns": [
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "283",
+        "description": "InterestRateFloor should be a non-negative number.",
+        "applicable_columns": [
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "284",
+        "description": "NetSalesCurrent should be a non-negative number.",
+        "applicable_columns": [
+            "NetSalesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "285",
+        "description": "NetSalesPriorYear should be a non-negative number.",
+        "applicable_columns": [
+            "NetSalesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "286",
+        "description": "OperatingIncome should be a number.",
+        "applicable_columns": [
+            "OperatingIncome"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "287",
+        "description": "DepreciationAmortization should be a non-negative number.",
+        "applicable_columns": [
+            "DepreciationAmortization"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "288",
+        "description": "InterestExpense should be a number.",
+        "applicable_columns": [
+            "InterestExpense"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "289",
+        "description": "NetIncomeCurrent should be a number.",
+        "applicable_columns": [
+            "NetIncomeCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "290",
+        "description": "NetIncomePriorYear should be a number.",
+        "applicable_columns": [
+            "NetIncomePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "291",
+        "description": "CashMarketableSecurities should be a non-negative number.",
+        "applicable_columns": [
+            "CashMarketableSecurities"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "292",
+        "description": "AccountsReceivableCurrent should be a non-negative number.",
+        "applicable_columns": [
+            "AccountsReceivableCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "293",
+        "description": "AccountsReceivablePriorYear should be a non-negative number.",
+        "applicable_columns": [
+            "AccountsReceivablePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "294",
+        "description": "InventoryCurrent should be a non-negative number.",
+        "applicable_columns": [
+            "InventoryCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "295",
+        "description": "InventoryPriorYear should be a non-negative number.",
+        "applicable_columns": [
+            "InventoryPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "296",
+        "description": "CurrentAssetsCurrent should be a non-negative number.",
+        "applicable_columns": [
+            "CurrentAssetsCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "297",
+        "description": "CurrentAssetsPriorYear should be a non-negative number.",
+        "applicable_columns": [
+            "CurrentAssetsPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "298",
+        "description": "TangibleAssets should be a non-negative number.",
+        "applicable_columns": [
+            "TangibleAssets"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "299",
+        "description": "FixedAssets should be a non-negative number.",
+        "applicable_columns": [
+            "FixedAssets"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "300",
+        "description": "AccountsPayableCurrent should be a non-negative number.",
+        "applicable_columns": [
+            "AccountsPayableCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "301",
+        "description": "AccountsPayablePriorYear should be a non-negative number.",
+        "applicable_columns": [
+            "AccountsPayablePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "302",
+        "description": "ShortTermDebt should be a non-negative number.",
+        "applicable_columns": [
+            "ShortTermDebt"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "303",
+        "description": "CurrentMaturitiesLongTermDebt should be a non-negative number.",
+        "applicable_columns": [
+            "CurrentMaturitiesLongTermDebt"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "304",
+        "description": "CurrentLiabilitiesCurrent should be a non-negative number.",
+        "applicable_columns": [
+            "CurrentLiabilitiesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "305",
+        "description": "CurrentLiabilitiesPriorYear should be a non-negative number.",
+        "applicable_columns": [
+            "CurrentLiabilitiesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "306",
+        "description": "LongTermDebt should be a non-negative number.",
+        "applicable_columns": [
+            "LongTermDebt"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be greater than or equal to 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "307",
+        "description": "MinorityInterest should be a number.",
+        "applicable_columns": [
+            "MinorityInterest"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a number.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "308",
+        "description": "If TickerSymbol is populated, it must be a valid ticker symbol on the specified StockExchange.",
+        "applicable_columns": [
+            "TickerSymbol",
+            "StockExchange"
+        ],
+        "severity": "Low",
+        "condition": "If TickerSymbol is present, it must be a valid symbol on the StockExchange.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "309",
+        "description": "The sum of CurrentMaturitiesLongTermDebt and ShortTermDebt should be less than or equal to CurrentLiabilitiesCurrent.",
+        "applicable_columns": [
+            "CurrentMaturitiesLongTermDebt",
+            "ShortTermDebt",
+            "CurrentLiabilitiesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "CurrentMaturitiesLongTermDebt + ShortTermDebt <= CurrentLiabilitiesCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "310",
+        "description": "The sum of AccountsPayableCurrent and ShortTermDebt should be less than or equal to CurrentLiabilitiesCurrent.",
+        "applicable_columns": [
+            "AccountsPayableCurrent",
+            "ShortTermDebt",
+            "CurrentLiabilitiesCurrent"
+        ],
+        "severity": "Medium",
+        "condition": "AccountsPayableCurrent + ShortTermDebt <= CurrentLiabilitiesCurrent",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "311",
+        "description": "The sum of AccountsPayablePriorYear and ShortTermDebt should be less than or equal to CurrentLiabilitiesPriorYear.",
+        "applicable_columns": [
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentLiabilitiesPriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "AccountsPayablePriorYear + ShortTermDebt <= CurrentLiabilitiesPriorYear",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "312",
+        "description": "If InterestRate is populated, it must be less than or equal to InterestRateCeiling.",
+        "applicable_columns": [
+            "InterestRate",
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRate is present, then InterestRate <= InterestRateCeiling.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "313",
+        "description": "If InterestRate is populated, it must be greater than or equal to InterestRateFloor.",
+        "applicable_columns": [
+            "InterestRate",
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRate is present, then InterestRate >= InterestRateFloor.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "314",
+        "description": "If InterestRateSpread is populated, it must be less than or equal to InterestRateCeiling.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateCeiling"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateSpread is present, then InterestRateSpread <= InterestRateCeiling.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "315",
+        "description": "If InterestRateSpread is populated, it must be greater than or equal to InterestRateFloor.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateSpread is present, then InterestRateSpread >= InterestRateFloor.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "316",
+        "description": "InterestRateSpread should be within a reasonable range based on the InterestRateIndex.",
+        "applicable_columns": [
+            "InterestRateSpread",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "InterestRateSpread should fall within the typical range for the chosen InterestRateIndex.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "317",
+        "description": "If NetIncomeCurrent is positive, then OperatingIncome should also be positive.",
+        "applicable_columns": [
+            "NetIncomeCurrent",
+            "OperatingIncome"
+        ],
+        "severity": "Low",
+        "condition": "If NetIncomeCurrent > 0, then OperatingIncome > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "318",
+        "description": "If NetIncomePriorYear is positive, then OperatingIncome should also be positive.",
+        "applicable_columns": [
+            "NetIncomePriorYear",
+            "OperatingIncome"
+        ],
+        "severity": "Low",
+        "condition": "If NetIncomePriorYear > 0, then OperatingIncome > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "319",
+        "description": "If StockExchange is 'NASDAQ', TickerSymbol should be a valid NASDAQ ticker.",
+        "applicable_columns": [
+            "StockExchange",
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange = 'NASDAQ', then TickerSymbol should be a valid NASDAQ ticker.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "320",
+        "description": "If StockExchange is 'NYSE', TickerSymbol should be a valid NYSE ticker.",
+        "applicable_columns": [
+            "StockExchange",
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange = 'NYSE', then TickerSymbol should be a valid NYSE ticker.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "321",
+        "description": "If StockExchange is populated, ensure that both CUSIP and TickerSymbol are populated.",
+        "applicable_columns": [
+            "StockExchange",
+            "CUSIP",
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange is present, then both CUSIP and TickerSymbol are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "322",
+        "description": "If CUSIP is populated, ensure that both StockExchange and TickerSymbol are populated.",
+        "applicable_columns": [
+            "CUSIP",
+            "StockExchange",
+            "TickerSymbol"
+        ],
+        "severity": "Low",
+        "condition": "If CUSIP is present, then both StockExchange and TickerSymbol are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "323",
+        "description": "If TickerSymbol is populated, ensure that both StockExchange and CUSIP are populated.",
+        "applicable_columns": [
+            "TickerSymbol",
+            "StockExchange",
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "If TickerSymbol is present, then both StockExchange and CUSIP are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "324",
+        "description": "CommittedExposure should be greater than zero if UtilizedExposure is populated.",
+        "applicable_columns": [
+            "CommittedExposure",
+            "UtilizedExposure"
+        ],
+        "severity": "High",
+        "condition": "If UtilizedExposure is present, then CommittedExposure > 0.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "325",
+        "description": "If the ObligorName contains 'INC', then StockExchange, TickerSymbol and CUSIP should be populated.",
+        "applicable_columns": [
+            "ObligorName",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "If ObligorName contains 'INC', then StockExchange, TickerSymbol and CUSIP are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "326",
+        "description": "If the ObligorName contains 'LLC', then StockExchange, TickerSymbol and CUSIP should be empty.",
+        "applicable_columns": [
+            "ObligorName",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "If ObligorName contains 'LLC', then StockExchange, TickerSymbol and CUSIP are null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "327",
+        "description": "If the ObligorName contains 'CORP', then StockExchange, TickerSymbol and CUSIP should be populated.",
+        "applicable_columns": [
+            "ObligorName",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "If ObligorName contains 'CORP', then StockExchange, TickerSymbol and CUSIP are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "328",
+        "description": "If the ObligorName contains 'CO', then StockExchange, TickerSymbol and CUSIP should be populated.",
+        "applicable_columns": [
+            "ObligorName",
+            "StockExchange",
+            "TickerSymbol",
+            "CUSIP"
+        ],
+        "severity": "Low",
+        "condition": "If ObligorName contains 'CO', then StockExchange, TickerSymbol and CUSIP are not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "329",
+        "description": "CustomerID must be a valid UUID.",
+        "applicable_columns": [
+            "CustomerID"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the UUID format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "330",
+        "description": "InternalObligorID must be a valid UUID.",
+        "applicable_columns": [
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the UUID format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "331",
+        "description": "OriginalInternalObligorID must be a valid UUID.",
+        "applicable_columns": [
+            "OriginalInternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the UUID format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "332",
+        "description": "InternalCreditFacilityID must be a valid UUID.",
+        "applicable_columns": [
+            "InternalCreditFacilityID"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the UUID format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "333",
+        "description": "GuarantorInternalID must be a valid UUID.",
+        "applicable_columns": [
+            "GuarantorInternalID"
+        ],
+        "severity": "Medium",
+        "condition": "Value must conform to the UUID format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "334",
+        "description": "EntityInternalID must be a valid UUID.",
+        "applicable_columns": [
+            "EntityInternalID"
+        ],
+        "severity": "High",
+        "condition": "Value must conform to the UUID format.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "335",
+        "description": "ObligorName should only contain alphanumeric characters, spaces, hyphens, and periods.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphanumeric characters, spaces, hyphens, and periods.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "336",
+        "description": "GuarantorName should only contain alphanumeric characters, spaces, hyphens, and periods.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphanumeric characters, spaces, hyphens, and periods.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "337",
+        "description": "EntityName should only contain alphanumeric characters, spaces, hyphens, and periods.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphanumeric characters, spaces, hyphens, and periods.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "338",
+        "description": "City should only contain alphabetic characters and spaces.",
+        "applicable_columns": [
+            "City"
+        ],
+        "severity": "Low",
+        "condition": "Value should only contain alphabetic characters and spaces.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "339",
+        "description": "Country should be a two-letter ISO country code.",
+        "applicable_columns": [
+            "Country"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a two-letter ISO country code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "340",
+        "description": "IndustryCode should be a valid NAICS or SIC code.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid NAICS or SIC code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "341",
+        "description": "InternalRating should be a valid internal risk rating.",
+        "applicable_columns": [
+            "InternalRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid internal risk rating.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "342",
+        "description": "FacilityType should be a valid facility type code.",
+        "applicable_columns": [
+            "FacilityType"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid facility type code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "343",
+        "description": "SecurityType should be a valid security type code.",
+        "applicable_columns": [
+            "SecurityType"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a valid security type code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "344",
+        "description": "InterestRateVariability should be a valid interest rate variability code.",
+        "applicable_columns": [
+            "InterestRateVariability"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a valid interest rate variability code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "345",
+        "description": "InterestRateIndex should be a valid interest rate index code.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a valid interest rate index code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "346",
+        "description": "TaxStatus should be a valid tax status code.",
+        "applicable_columns": [
+            "TaxStatus"
+        ],
+        "severity": "Low",
+        "condition": "Value must be a valid tax status code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "347",
+        "description": "GuarantorInternalRiskRating should be a valid internal risk rating.",
+        "applicable_columns": [
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid internal risk rating.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "348",
+        "description": "EntityInternalRiskRating should be a valid internal risk rating.",
+        "applicable_columns": [
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be a valid internal risk rating.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "349",
+        "description": "IndustryCode should not have leading zeros.",
+        "applicable_columns": [
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "Value should not start with zero(s).",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "350",
+        "description": "If the IndustryCodeType is 'SIC', then IndustryCode should start with a digit between 0 and 9.",
+        "applicable_columns": [
+            "IndustryCodeType",
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "If IndustryCodeType = 'SIC', then IndustryCode should start with a digit between 0 and 9.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "351",
+        "description": "If the IndustryCodeType is 'NAICS', then IndustryCode should start with a digit between 1 and 9.",
+        "applicable_columns": [
+            "IndustryCodeType",
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "If IndustryCodeType = 'NAICS', then IndustryCode should start with a digit between 1 and 9.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "352",
+        "description": "If LineOfBusiness contains 'Finance', then IndustryCode should be in the range 520000-530000.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness contains 'Finance', then IndustryCode should be in the range 520000-530000.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "353",
+        "description": "If LineOfBusiness contains 'Technology', then IndustryCode should be in the range 540000-550000.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness contains 'Technology', then IndustryCode should be in the range 540000-550000.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "354",
+        "description": "If LineOfBusiness contains 'Healthcare', then IndustryCode should be in the range 620000-630000.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness contains 'Healthcare', then IndustryCode should be in the range 620000-630000.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "355",
+        "description": "If LineOfBusiness contains 'Manufacturing', then IndustryCode should be in the range 310000-340000.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness contains 'Manufacturing', then IndustryCode should be in the range 310000-340000.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "356",
+        "description": "If LineOfBusiness contains 'Retail', then IndustryCode should be in the range 440000-460000.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness contains 'Retail', then IndustryCode should be in the range 440000-460000.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "357",
+        "description": "If Country is 'US', then ZipCodeForeignMailingCode should be a valid US zip code.",
+        "applicable_columns": [
+            "Country",
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": "If Country = 'US', then ZipCodeForeignMailingCode should be a valid US zip code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "358",
+        "description": "If Country is 'CA', then ZipCodeForeignMailingCode should be a valid Canadian postal code.",
+        "applicable_columns": [
+            "Country",
+            "ZipCodeForeignMailingCode"
+        ],
+        "severity": "Low",
+        "condition": "If Country = 'CA', then ZipCodeForeignMailingCode should be a valid Canadian postal code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "359",
+        "description": "If GuarantorFlag is 'Yes', then GuarantorName should be different from EntityName.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "GuarantorName",
+            "EntityName"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorFlag = 'Yes', then GuarantorName != EntityName.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "360",
+        "description": "If EntityName is populated, then EntityInternalRiskRating must be populated.",
+        "applicable_columns": [
+            "EntityName",
+            "EntityInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "If EntityName is present, then EntityInternalRiskRating is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "361",
+        "description": "If GuarantorName is populated, then GuarantorInternalRiskRating must be populated.",
+        "applicable_columns": [
+            "GuarantorName",
+            "GuarantorInternalRiskRating"
+        ],
+        "severity": "Medium",
+        "condition": "If GuarantorName is present, then GuarantorInternalRiskRating is not null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "362",
+        "description": "If IndustryCodeType is 'GICS', then IndustryCode must be a valid GICS code.",
+        "applicable_columns": [
+            "IndustryCodeType",
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "If IndustryCodeType = 'GICS', then IndustryCode must be a valid GICS code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "363",
+        "description": "If StockExchange is populated, the Country must be a country where that StockExchange is located.",
+        "applicable_columns": [
+            "StockExchange",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "If StockExchange is present, then Country must be a country where StockExchange is located.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "364",
+        "description": "If TickerSymbol is populated, it must be a valid ticker symbol for the listed StockExchange and Country.",
+        "applicable_columns": [
+            "TickerSymbol",
+            "StockExchange",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "If TickerSymbol is present, it must be a valid symbol listed on StockExchange in Country.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "365",
+        "description": "If CUSIP is populated, it must be a valid CUSIP for the listed StockExchange and Country.",
+        "applicable_columns": [
+            "CUSIP",
+            "StockExchange",
+            "Country"
+        ],
+        "severity": "Low",
+        "condition": "If CUSIP is present, it must be a valid CUSIP listed on StockExchange in Country.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "366",
+        "description": "OriginationDate must be before MaturityDate.",
+        "applicable_columns": [
+            "OriginationDate",
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": "OriginationDate < MaturityDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "367",
+        "description": "OriginationDate must be before DateFinancials.",
+        "applicable_columns": [
+            "OriginationDate",
+            "DateFinancials"
+        ],
+        "severity": "Medium",
+        "condition": "OriginationDate < DateFinancials",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "368",
+        "description": "MaturityDate must be after DateFinancials.",
+        "applicable_columns": [
+            "MaturityDate",
+            "DateFinancials"
+        ],
+        "severity": "Medium",
+        "condition": "MaturityDate > DateFinancials",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "369",
+        "description": "NonAccrualDate must be after OriginationDate.",
+        "applicable_columns": [
+            "NonAccrualDate",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "NonAccrualDate > OriginationDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "370",
+        "description": "NonAccrualDate must be before MaturityDate.",
+        "applicable_columns": [
+            "NonAccrualDate",
+            "MaturityDate"
+        ],
+        "severity": "Medium",
+        "condition": "NonAccrualDate < MaturityDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "371",
+        "description": "DateLastAudit must be before DateFinancials.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "DateFinancials"
+        ],
+        "severity": "Medium",
+        "condition": "DateLastAudit < DateFinancials",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "372",
+        "description": "DateLastAudit must be after OriginationDate.",
+        "applicable_columns": [
+            "DateLastAudit",
+            "OriginationDate"
+        ],
+        "severity": "Medium",
+        "condition": "DateLastAudit > OriginationDate",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "373",
+        "description": "If InterestRateVariability is 'Fixed', then InterestRateIndex, InterestRateSpread, InterestRateCeiling, and InterestRateFloor must be empty.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateIndex",
+            "InterestRateSpread",
+            "InterestRateCeiling",
+            "InterestRateFloor"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateVariability = 'Fixed', then InterestRateIndex, InterestRateSpread, InterestRateCeiling, and InterestRateFloor must be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "374",
+        "description": "If InterestRateVariability is 'Capped' or 'Floored', then InterestRateIndex and InterestRateSpread must be populated.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateIndex",
+            "InterestRateSpread"
+        ],
+        "severity": "Medium",
+        "condition": "If InterestRateVariability = 'Capped' or 'Floored', then InterestRateIndex and InterestRateSpread must not be null or empty.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "375",
+        "description": "The OriginationDate must be within a reasonable range from the current date.",
+        "applicable_columns": [
+            "OriginationDate"
+        ],
+        "severity": "High",
+        "condition": "OriginationDate must be within the last 20 years.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "376",
+        "description": "The MaturityDate must be within a reasonable range from the current date.",
+        "applicable_columns": [
+            "MaturityDate"
+        ],
+        "severity": "High",
+        "condition": "MaturityDate must be within the next 30 years.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "377",
+        "description": "The DateFinancials must be within a reasonable range from the current date.",
+        "applicable_columns": [
+            "DateFinancials"
+        ],
+        "severity": "High",
+        "condition": "DateFinancials must be within the last 5 years.",
+        "expected_data_type": "date"
+    },
+    {
+        "rule_id": "378",
+        "description": "InterestRateIndex must be selected from a predefined list.",
+        "applicable_columns": [
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "Value must be from the allowed list of interest rate indexes.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "379",
+        "description": "If InterestRateCeiling is populated, it should be greater than or equal to InterestRateSpread.",
+        "applicable_columns": [
+            "InterestRateCeiling",
+            "InterestRateSpread"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateCeiling is present, then InterestRateCeiling >= InterestRateSpread.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "380",
+        "description": "If InterestRateFloor is populated, it should be less than or equal to InterestRateSpread.",
+        "applicable_columns": [
+            "InterestRateFloor",
+            "InterestRateSpread"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateFloor is present, then InterestRateFloor <= InterestRateSpread.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "381",
+        "description": "If InterestRateVariability is 'Variable', then InterestRateIndex should be from a list of valid variable rate indexes.",
+        "applicable_columns": [
+            "InterestRateVariability",
+            "InterestRateIndex"
+        ],
+        "severity": "Low",
+        "condition": "If InterestRateVariability = 'Variable', then InterestRateIndex is from a valid list of variable rate indexes.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "382",
+        "description": "If GuarantorFlag is 'Yes', then the GuarantorName should be at least 5 characters long.",
+        "applicable_columns": [
+            "GuarantorFlag",
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "If GuarantorFlag = 'Yes', then the length of GuarantorName >= 5.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "383",
+        "description": "If EntityName is populated, then the EntityName should be at least 5 characters long.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "If EntityName is present, then the length of EntityName >= 5.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "384",
+        "description": "ObligorName should be a valid business name.",
+        "applicable_columns": [
+            "ObligorName"
+        ],
+        "severity": "Low",
+        "condition": "ObligorName should follow business naming conventions.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "385",
+        "description": "GuarantorName should be a valid business or personal name.",
+        "applicable_columns": [
+            "GuarantorName"
+        ],
+        "severity": "Low",
+        "condition": "GuarantorName should follow business or personal naming conventions.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "386",
+        "description": "EntityName should be a valid business name.",
+        "applicable_columns": [
+            "EntityName"
+        ],
+        "severity": "Low",
+        "condition": "EntityName should follow business naming conventions.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "387",
+        "description": "If the IndustryCodeType is 'ISIC', then IndustryCode must be a valid ISIC code.",
+        "applicable_columns": [
+            "IndustryCodeType",
+            "IndustryCode"
+        ],
+        "severity": "Medium",
+        "condition": "If IndustryCodeType = 'ISIC', then IndustryCode must be a valid ISIC code.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "388",
+        "description": "If LineOfBusiness is 'Agriculture', then IndustryCode should start with '11'.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Agriculture', then IndustryCode should start with '11'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "389",
+        "description": "If LineOfBusiness is 'Mining', then IndustryCode should start with '21'.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Mining', then IndustryCode should start with '21'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "390",
+        "description": "If LineOfBusiness is 'Utilities', then IndustryCode should start with '22'.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Utilities', then IndustryCode should start with '22'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "391",
+        "description": "If LineOfBusiness is 'Construction', then IndustryCode should start with '23'.",
+        "applicable_columns": [
+            "LineOfBusiness",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If LineOfBusiness = 'Construction', then IndustryCode should start with '23'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "392",
+        "description": "IndustryCodeType should be selected from a predefined list of allowed code types such as NAICS, SIC, GICS, and ISIC.",
+        "applicable_columns": [
+            "IndustryCodeType"
+        ],
+        "severity": "Medium",
+        "condition": "Value must be from the allowed list of industry code types (NAICS, SIC, GICS, ISIC).",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "393",
+        "description": "The OriginalInternalObligorID should match the InternalObligorID from a previous submission.",
+        "applicable_columns": [
+            "OriginalInternalObligorID",
+            "InternalObligorID"
+        ],
+        "severity": "High",
+        "condition": "OriginalInternalObligorID must exist as an InternalObligorID in a previous submission.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "394",
+        "description": "If the ObligorName contains the word 'Bank', then the IndustryCode should start with '5221'.",
+        "applicable_columns": [
+            "ObligorName",
+            "IndustryCode"
+        ],
+        "severity": "Low",
+        "condition": "If ObligorName contains 'Bank', then IndustryCode starts with '5221'.",
+        "expected_data_type": "string"
+    },
+    {
+        "rule_id": "395",
+        "description": "InterestRate should be less than or equal to 50%.",
+        "applicable_columns": [
+            "InterestRate"
+        ],
+        "severity": "Medium",
+        "condition": "InterestRate <= 50",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "396",
+        "description": "A reporting bank should report the Fields as defined by its financial spreading systems in accordance with its credit policy.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "Data must be consistent with the bank's financial spreading systems and credit policy.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "397",
+        "description": "The financial statement data fields should be populated with the most recent financial statement data available as of the report date.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "NetSalesPriorYear",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "NetIncomePriorYear",
+            "CashMarketableSecurities",
+            "AccountsReceivableCurrent",
+            "AccountsReceivablePriorYear",
+            "InventoryCurrent",
+            "InventoryPriorYear",
+            "CurrentAssetsCurrent",
+            "CurrentAssetsPriorYear",
+            "TangibleAssets",
+            "FixedAssets",
+            "TotalAssetsCurrent",
+            "TotalAssetsPriorYear",
+            "AccountsPayableCurrent",
+            "AccountsPayablePriorYear",
+            "ShortTermDebt",
+            "CurrentMaturitiesLongTermDebt",
+            "CurrentLiabilitiesCurrent",
+            "CurrentLiabilitiesPriorYear",
+            "LongTermDebt",
+            "MinorityInterest",
+            "TotalLiabilities"
+        ],
+        "severity": "High",
+        "condition": "Data must reflect the most recent financial data in the consolidated holding company\u2019s financial spreading system as of the report date.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "398",
+        "description": "NetSalesCurrent, OperatingIncome, DepreciationAmortization, InterestExpense, NetIncomeCurrent, and TotalLiabilities should be reported for the most recently available trailing twelve month (TTM) period, with the ending date indicated in DateFinancials.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "Values should represent the TTM period ending on the DateFinancials.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "399",
+        "description": "NetSalesPriorYear and NetIncomePriorYear should be reported for the TTM period ended one year prior to the date indicated in DateFinancials.",
+        "applicable_columns": [
+            "NetSalesPriorYear",
+            "NetIncomePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "Values should represent the TTM period ending one year prior to DateFinancials.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "400",
+        "description": "If an obligor lacks trailing twelve months of financial information, provide the underwritten annual information for NetSalesCurrent, OperatingIncome, DepreciationAmortization, InterestExpense, NetIncomeCurrent and TotalLiabilities, with the ending date indicated in DateFinancials.",
+        "applicable_columns": [
+            "NetSalesCurrent",
+            "OperatingIncome",
+            "DepreciationAmortization",
+            "InterestExpense",
+            "NetIncomeCurrent",
+            "TotalLiabilities"
+        ],
+        "severity": "Medium",
+        "condition": "If TTM data is unavailable, the underwritten annual information should be used, ending on DateFinancials.",
+        "expected_data_type": "float"
+    },
+    {
+        "rule_id": "401",
+        "description": "If an obligor lacks trailing twelve months of financial information, provide the underwritten annual information for NetSalesPriorYear and NetIncomePriorYear, with the ending date one year prior to the date indicated in DateFinancials.",
+        "applicable_columns": [
+            "NetSalesPriorYear",
+            "NetIncomePriorYear"
+        ],
+        "severity": "Medium",
+        "condition": "If TTM data is unavailable, the underwritten annual information should be used, ending one year prior to DateFinancials.",
+        "expected_data_type": "float"
+    }
+]

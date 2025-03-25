@@ -124,6 +124,7 @@ def extract_rules_from_pdf(pdf_file, df):
         query = st.text_input("🔎 Enter query for rule extraction:",
                               value="Extract structured validation rules for corporate loans and risk reporting")
 
+        seen_rules = set()
         if st.button("Run Extraction"):
             retrieved_docs = vector_store.similarity_search(query, k=8)
             retrieved_texts = [doc.page_content for doc in retrieved_docs]
@@ -133,33 +134,39 @@ def extract_rules_from_pdf(pdf_file, df):
             extracted_rules = []
             progress_bar = st.progress(0)  # Initialize progress bar
             batch_size = 1  # Process 3 chunks at a time
-
             batched_chunks = [retrieved_texts[i:i + batch_size] for i in range(0, len(retrieved_texts), batch_size)]
             for i, batch in enumerate(batched_chunks):
 
                 # Construct LLM Prompt
                 column_list = df.columns.tolist()  # Use dataset column names for better accuracy
                 prompt = f"""
-                    Extract and structure the following regulatory rules in JSON format and refer the following column names. Each rule should include:
+                    Extract and structure the following regulatory rules for all the columns present in the dataset in JSON format and refer the following column names. Each rule should include:
                     - `rule_id`: Unique identifier.
-                    - `description`: A clear explanation.
+                    - `description`: the exact type or the exact values that are allowed
                     - `applicable_columns`: The exact column names.
                     - `severity`: High, Medium, or Low.
                     - `condition`: A structured validation condition.
                     - `expected_data_type`: Specify whether the column is `string`, `integer`, `float`, `date`, or `boolean`.
-                    
-                    Rules must be logically correct:
-                    ✔ Numeric columns must NOT have string-based rules
-                    ✔ Date columns must enforce YYYY-MM-DD format
-                    ✔ String-based columns must only check textual constraints
-                    ✔ The rules should not repeated multiple times for the same columns if its already been generated in the JSON
-    
-                    
                     column names:
                     {column_list}
                     
                     rules:
                     {retrieved_texts}
+                    
+                    **EXISTING RULES (DO NOT REPEAT THESE RULES):**
+                    {json.dumps(extracted_rules, indent=2)}
+                    
+                    *NEW RULE EXTRACTION:**
+                    - Generate only new rules that do not match any descriptions or conditions of the same column name in the existing rules above.
+                    - The total number of generated rules in the extracted rules should be atleast more than 50 percent of the number of columns in the dataset : {len(df.columns.tolist())} 
+                    - The rules can be divided if there are too many columns under the same rule
+                    - Ensure uniqueness and do not duplicate existing validation logic.
+                    - Date columns must enforce YYYY-MM-DD format and need not have T00:00:00 included in it
+                    - Numeric columns must NOT have string-based rules
+                    - There should be proper rules generated 
+                    - String-based columns must only check textual constraints
+    
+                    
                 """
 
                 # Send query to Gemini
@@ -180,7 +187,7 @@ def extract_rules_from_pdf(pdf_file, df):
             # Step 6: Save Rules Persistently
             save_dir = "./data/output"
             os.makedirs(save_dir, exist_ok=True)
-            rules_json_path = os.path.join(save_dir, "extracted_validated_results.json")
+            rules_json_path = os.path.join(save_dir, "extracted_regulatory_rules.json")
             with open(rules_json_path, "w") as f:
                 json.dump(extracted_rules, f, indent=4)
 
