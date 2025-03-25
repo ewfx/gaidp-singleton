@@ -6,10 +6,20 @@ import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.chat_models import ChatOllama
-
 from langchain.schema import HumanMessage, Document
+
+import os
+from dotenv import load_dotenv
+
+# Retrieve the API key
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+# Initialize the GenAI model (Google Gemini)
+chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_API_KEY)
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",
+                                          google_api_key=GOOGLE_API_KEY)
+
 
 def rules_extract_data():
     st.title("📄 AI-Powered Rule Extraction")
@@ -48,7 +58,6 @@ def extract_rules_from_pdf(pdf_file, df):
 
 
     else:
-        chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="")
 
         # Load PDF text efficiently
          # Initialize progress bar
@@ -97,23 +106,19 @@ def extract_rules_from_pdf(pdf_file, df):
             table_text = "\n\n".join([df.to_string(index=False) for df in tables])
             full_text += "\n\n" + table_text  # Append structured tables to the text
 
-        # Step 2: Intelligent Text Splitting
+        # Intelligent Text Splitting
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=200)  # Larger but fewer chunks
         chunks = text_splitter.split_text(full_text)
 
         # Convert document chunks to LangChain format
         documents = [Document(page_content=chunk) for chunk in chunks]
 
-        # Step 3: Store Chunks in ChromaDB (Persistent Storage)
+        # Store Chunks in ChromaDB (Persistent Storage)
         persist_dir = "./chroma_db"
-        embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="")
         vector_store = Chroma.from_documents(documents, embedding=embeddings, persist_directory=persist_dir)
 
-        # st.success("✅ Text extraction complete! Storing data for efficient retrieval.")
 
-        # Step 4: Retrieve Relevant Sections in Batches
-        # query = "Extract structured validation rules for corporate loans and risk reporting"
-
+        # Retrieve Relevant Sections in Batches
         query = st.text_input("🔎 Enter query for rule extraction:",
                               value="Extract structured validation rules for corporate loans and risk reporting")
 
@@ -121,7 +126,7 @@ def extract_rules_from_pdf(pdf_file, df):
             retrieved_docs = vector_store.similarity_search(query, k=8)
             retrieved_texts = [doc.page_content for doc in retrieved_docs]
 
-        # Step 5: Batch Processing for Rule Extraction
+            # Batch Processing for Rule Extraction
 
             extracted_rules = []
             progress_bar = st.progress(0)  # Initialize progress bar
@@ -178,6 +183,6 @@ def extract_rules_from_pdf(pdf_file, df):
             st.success("✅ Rules extracted successfully!")
             st.json(extracted_rules)
 
-        # Provide download button
+            # Provide download button
             st.download_button("📥 Download Rules JSON", data=json.dumps(extracted_rules, indent=4),
                                    file_name="refined_validation_rules.json", mime="application/json")

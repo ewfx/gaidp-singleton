@@ -7,9 +7,15 @@ import streamlit as st
 from tqdm import tqdm
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import HumanMessage
+import os
+from dotenv import load_dotenv
+
+# Retrieve the API key
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Initialize the GenAI model (Google Gemini)
-chat = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="")
+chat = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_API_KEY)
 
 # Batch size
 batch_size = 10
@@ -77,7 +83,6 @@ def validate_dataset(df, validation_rules):
             st.download_button("📥 Download Validation Errors", data=csv, file_name="validation_errors.csv",
                                mime="text/csv")
     else:
-    # Fancy UI Header
         progress_bar = st.progress(0)  # Progress bar starts at 0%
 
         st.write("🔍 Running validation... This may take a few minutes.")
@@ -121,7 +126,7 @@ def validate_dataset(df, validation_rules):
                     status_box.error(f"⚠️ Batch {i}-{i + batch_size} took too long. Skipping.")
                     continue
 
-                    # ✅ **Fix potential response truncation issue**
+                    # **Fix potential response truncation issue**
                 raw_response = response.content[7:-3].strip()
                 if raw_response.startswith("{") and raw_response.endswith("}"):
                     parsed_response = json.loads(raw_response)

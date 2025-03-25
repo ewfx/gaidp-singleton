@@ -6,11 +6,19 @@ import plotly.express as px
 from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from sklearn.ensemble import IsolationForest
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler
 import numpy as np
-import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 
-chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key="")
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve the API key
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+
+chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_API_KEY)
 
 
 # Load dataset
@@ -23,7 +31,7 @@ def load_data():
 
 
 def estimate_contamination(df):
-    """Dynamically estimates contamination percentage based on multiple anomaly detection methods."""
+    # Dynamically estimates contamination percentage based on multiple anomaly detection methods.
 
     numeric_df = df.select_dtypes(include=[np.number])  # Keep only numerical features
     scaler = MinMaxScaler()
@@ -53,6 +61,8 @@ def estimate_contamination(df):
     estimated_contamination = max(0.01, min(estimated_contamination, 0.15))
 
     return round(estimated_contamination, 4)  # Rounded for better readability
+
+
 # Perform anomaly detection using Isolation Forest
 def detect_anomalies(df):
     # Drop non-numeric columns
@@ -128,7 +138,7 @@ def main():
 
     **How It Works:**
     1️⃣ Upload your **dataset (CSV)**.  
-    2️⃣ Choose an anomaly detection model (Isolation Forest, LOF, DBSCAN, etc.).  
+    2️⃣ An anomaly detection model Isolation Forest is used for large data efficiency.  
     3️⃣ AI highlights **unusual data points (outliers)**.  
     4️⃣ View **interactive visualizations** and download anomaly reports.  
 

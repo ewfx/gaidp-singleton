@@ -4,6 +4,18 @@ import json
 from langchain.vectorstores import FAISS
 from langchain.schema import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve the API key
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_API_KEY)
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GOOGLE_API_KEY)
+
 
 def chat_load_data():
     st.title("💬 Compliance Chat Assistant")
@@ -33,7 +45,6 @@ def chat_load_data():
 
 
 def chat_ui(extracted_rules_json, violated_rules_json):
-    """Interactive compliance assistant for querying validation issues and refining profiling rules."""
 
     extracted_rules_json = json.load(extracted_rules_json)
     violated_rules_json = json.load(violated_rules_json)
@@ -82,7 +93,6 @@ def chat_ui(extracted_rules_json, violated_rules_json):
         ]
 
         # Initialize embeddings & vector store
-        embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",google_api_key="")
         vector_store = FAISS.from_texts(violations_text, embedding=embeddings)
 
         # Retrieve relevant validation errors
@@ -105,7 +115,6 @@ def chat_ui(extracted_rules_json, violated_rules_json):
         """
 
         # Get AI response
-        chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash",google_api_key="")
         response = chat_model([HumanMessage(content=prompt)])
         assistant_response = response.content
 
