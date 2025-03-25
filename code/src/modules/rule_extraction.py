@@ -1,3 +1,5 @@
+import re
+
 import streamlit as st
 import pdfplumber
 import pandas as pd
@@ -31,6 +33,7 @@ def rules_extract_data():
         This module extracts **structured validation rules** from large regulatory PDFs using **Generative AI**.
 
         **How It Works:**
+        
         1️⃣ Upload a **regulatory PDF**.  
         2️⃣ AI extracts **structured validation rules** from relevant sections.  
         3️⃣ Rules are formatted as **JSON** for easy validation against datasets.  
@@ -47,6 +50,27 @@ def rules_extract_data():
     if regulatory_file is not None and dataset_file is not None:
         extract_rules_from_pdf(regulatory_file,dataset_file)
     return None
+
+
+def fix_truncated_json(response_text):
+    """
+    Fixes a truncated JSON string by ensuring it starts with '{' and ends with '}'.
+    If the last '}' is missing, it appends one at the correct position.
+    """
+    # Find first `{` and last `}`
+    match = re.search(r'{', response_text)  # First occurrence of `{`
+    last_match = re.finditer(r'}', response_text)  # All occurrences of `}`
+    last_match = list(last_match)  # Convert iterator to list
+
+    if not match or not last_match:
+        return None  # No valid JSON structure found
+
+    last_pos = last_match[-1].end()  # Position after last `}`
+
+    # Extract valid JSON portion
+    fixed_json = response_text[:last_pos] + "]"   # Add an extra `}` just in case
+
+    return fixed_json
 
 def extract_rules_from_pdf(pdf_file, df):
     """Extract validation rules from the uploaded PDF using LLM & ChromaDB."""
@@ -172,12 +196,16 @@ def extract_rules_from_pdf(pdf_file, df):
                 # Send query to Gemini
                 response = chat_model([HumanMessage(content=prompt)])
                 print("THe response is \n")
-                print(type(response))
-                print(response)
                 try:
-                    batch_rules = json.loads(response.content[7:-3])  # Parse JSON output
+                    raw_response = response.content[7:-3].strip()
+                    if raw_response.startswith("{") and raw_response.endswith("}"):
+                        batch_rules = json.loads(raw_response)  # Parse JSON output
+                    else:
+                        raw_response = fix_truncated_json(raw_response)
+                        batch_rules = json.loads(raw_response)
                     extracted_rules.extend(batch_rules)  # Append to final list
                 except json.JSONDecodeError:
+                    print(response.content[7:-3])
                     st.error(f"❌ Error parsing response for batch {i + 1}. Skipping.")
 
                 progress_bar.progress((i + 1) / len(batched_chunks))
