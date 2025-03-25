@@ -13,7 +13,9 @@ from dotenv import load_dotenv
 
 # Retrieve the API key
 load_dotenv()
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+# GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = st.secrets["google"]["api_key"]
+
 
 # Initialize the GenAI model (Google Gemini)
 chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_API_KEY)
@@ -176,7 +178,9 @@ def extract_rules_from_pdf(pdf_file, df):
             st.success("✅ Rule extraction completed!")
             progress_bar.empty()  # Remove progress bar after completion
             # Step 6: Save Rules Persistently
-            rules_json_path = "./data/refined_validation_rules.json"
+            save_dir = "./data/output"
+            os.makedirs(save_dir, exist_ok=True)
+            rules_json_path = os.path.join(save_dir, "extracted_validated_results.json")
             with open(rules_json_path, "w") as f:
                 json.dump(extracted_rules, f, indent=4)
 

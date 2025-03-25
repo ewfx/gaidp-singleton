@@ -12,7 +12,9 @@ from dotenv import load_dotenv
 
 # Retrieve the API key
 load_dotenv()
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+# GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = st.secrets["google"]["api_key"]
+
 
 # Initialize the GenAI model (Google Gemini)
 chat = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_API_KEY)
@@ -158,8 +160,10 @@ def validate_dataset(df, validation_rules):
         st.write(f"✅ **Successful Batches:** {success_count}")
         st.write(f"❌ **Failed Batches:** {error_count}")
 
+        save_dir = "./data/output"
+        os.makedirs(save_dir, exist_ok=True)
         # Save validation results
-        validation_json_path = "./data/extracted_validated_results.json"
+        validation_json_path = os.path.join(save_dir, "extracted_validated_results.json")
         with open(validation_json_path, "w") as f:
             json.dump(all_results, f, indent=4)
 
