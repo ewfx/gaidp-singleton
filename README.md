@@ -132,6 +132,11 @@ This AI-powered **Data Profiling & Compliance Assistant** follows a structured *
 - Uses **Isolation Forest** to detect outliers in financial data.
 - Visualizes **anomalies** with interactive graphs.
 - Download **flagged anomalies (CSV)** for further review.
+
+## ✐ᝰ. Architecture
+
+  ![data-profiling-arch-diagram](https://github.com/user-attachments/assets/037a1bc4-51d5-47b9-aadf-bbbd92ce1444)
+
     `
 
 ## 🎥 Demo
@@ -139,7 +144,24 @@ This AI-powered **Data Profiling & Compliance Assistant** follows a structured *
 - 📑 [Part 2 : Validate Dataset For Violations](https://drive.google.com/file/d/1Ve4FH08GHxtqDv9rOTzAFjJ99y7q7Hf7/view?usp=sharing)
 - 📑 [Part 3 : Compliance Chat Assistant and Anomaly Detection](https://drive.google.com/file/d/1p2uNhu5UlHvaU26cjABcnVDKVdXdjJZ6/view?usp=drive_link)
 
+### Screenshots 
+- **Rule Extraction (AI-Powered Regulatory Rule Extraction)**
+  ![image](https://github.com/user-attachments/assets/2c410a18-90dc-46f8-8f1b-7da471c589c6)
+  ![image](https://github.com/user-attachments/assets/29ddeed9-78c0-43f5-8fe3-d9bb9c5d6dd3)
 
+- **Dataset Validation (Automated Compliance Checking)**
+  ![image](https://github.com/user-attachments/assets/b78dd3e2-f67d-460b-ad2e-3333ed5f67d3)
+  ![image](https://github.com/user-attachments/assets/94d14a03-c6ae-403f-9be5-bf7a9818352f)
+
+- **Compliance Chat Assistant (Interactive AI-Powered Queries)**
+  ![image](https://github.com/user-attachments/assets/4d6b9213-85c1-48c6-8c69-db0f9db74bac)
+  ![image](https://github.com/user-attachments/assets/bfc6db4d-60bc-4b79-88ff-fc8d9c829e4c)
+
+- **Anomaly Detection (Machine Learning-Based Outlier Detection)**
+  ![image](https://github.com/user-attachments/assets/7d40ddae-e296-4589-ad64-51017626cf64)
+  ![image](https://github.com/user-attachments/assets/3848708a-09d6-4ef3-8033-147684d1c573)
+  ![image](https://github.com/user-attachments/assets/9c121c95-d5d1-4f1d-80c8-2ef5c6e3d525)
+  
 
 ## 🏗️ Tech Stack
 
