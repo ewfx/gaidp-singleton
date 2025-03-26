@@ -9,6 +9,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain.schema import HumanMessage, Document
+# from st_aggrid import AgGrid, GridOptionsBuilder
 
 import os
 from dotenv import load_dotenv
@@ -24,29 +25,88 @@ chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOO
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001",
                                           google_api_key=GOOGLE_API_KEY)
 
+def display_styled_dataframe(df):
+    # Convert to Streamlit's interactive table
+    st.data_editor(
+        df,
+        hide_index=False,  # Show row numbers
+        use_container_width=True,  # Stretch across screen
+        column_config={
+            col: st.column_config.Column(width="auto") for col in df.columns
+        },
+    )
+
+    # Apply custom CSS styling
+    st.markdown(
+        """
+        <style>
+            /* Make headers bold */
+            .stDataFrame th {
+                font-weight: bold !important;
+                background-color: #f4f4f4 !important;
+            }
+
+            /* Alternating row colors */
+            .stDataFrame tbody tr:nth-child(odd) {
+                background-color: #f9f9f9 !important;
+            }
+
+            /* Hover effect */
+            .stDataFrame tbody tr:hover {
+                background-color: #e6f7ff !important;
+            }
+
+            /* Adjust cell padding for better readability */
+            .stDataFrame td {
+                padding: 8px !important;
+            }
+
+            /* Fix column widths */
+            .stDataFrame th, .stDataFrame td {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Circular Progress Bar CSS
+    circle_progress_css = """
+    <style>
+        .progress-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 8px solid #ddd;
+            border-top-color: #1f77b4;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    """
+    st.markdown(circle_progress_css, unsafe_allow_html=True)
+
+
 
 def rules_extract_data():
-    st.title("📄 AI-Powered Rule Extraction")
+    st.image("./image/Rule_Extraction.png")
 
-    st.markdown("""
-        ### 🔍 Extract Regulatory Validation Rules  
-        This module extracts **structured validation rules** from large regulatory PDFs using **Generative AI**.
-
-        **How It Works:**
-        
-        1️⃣ Upload a **regulatory PDF** and the **Dataset** that you plan on validating.  
-        2️⃣ AI extracts **structured validation rules** from relevant sections.  
-        3️⃣ Rules are formatted as **JSON** for easy validation against datasets.  
-        4️⃣ Download extracted rules for further processing.  
-
-        ### 🚀 Why Use This?
-        ✅ **Automates rule extraction** from complex documents.  
-        ✅ **Ensures regulatory compliance** by deriving logical validation rules.  
-        ✅ **Saves time** by eliminating manual rule interpretation.  
-        """)
-
-    regulatory_file = st.file_uploader("📂 Upload Regulatory PDF", type=["pdf"])
-    dataset_file = st.file_uploader("📂 Upload Dataset (CSV)", type=["csv"])
+    col1, col2 = st.columns(2)
+    with col1:
+        regulatory_file = st.file_uploader("📂 Upload Regulatory PDF", type=["pdf"])
+    with col2:
+        dataset_file = st.file_uploader("📂 Upload Dataset (CSV)", type=["csv"])
     if regulatory_file is not None and dataset_file is not None:
         extract_rules_from_pdf(regulatory_file,dataset_file)
     return None
@@ -88,44 +148,44 @@ def extract_rules_from_pdf(pdf_file, df):
         # Load PDF text efficiently
          # Initialize progress bar
         extracted_text = []
-        if "extracted_text" not in st.session_state:
-            st.write("🔍 Extracting text from PDF... Please wait.")
-            pdf_progress = st.progress(0)
+        col1, col2 = st.columns(2)
+        with col1:
+            if "extracted_text" not in st.session_state:
+                pdf_progress = st.progress(0)
 
-            extracted_text = []
-            with pdfplumber.open(pdf_file) as pdf:
-                total_pages = len(pdf.pages)
-                for i, page in enumerate(pdf.pages):
-                    extracted_text.append(page.extract_text() or "")
-                    pdf_progress.progress((i + 1) / total_pages)
+                extracted_text = []
+                with pdfplumber.open(pdf_file) as pdf:
+                    total_pages = len(pdf.pages)
+                    for i, page in enumerate(pdf.pages):
+                        extracted_text.append(page.extract_text() or "")
+                        pdf_progress.progress((i + 1) / total_pages)
 
-            pdf_progress.empty()
-            st.session_state["extracted_text"] = extracted_text
-            st.success("✅ PDF text extraction complete!")
-        else:
-            extracted_text = st.session_state["extracted_text"]
+                pdf_progress.empty()
+                st.session_state["extracted_text"] = extracted_text
+                st.success("✅ PDF text extraction complete!")
+            else:
+                extracted_text = st.session_state["extracted_text"]
 
 
         full_text = "\n\n".join(extracted_text)
 
+        with col2:
+            if "extracted_tables" not in st.session_state:
+                table_progress = st.progress(0)
 
-        if "extracted_tables" not in st.session_state:
-            st.write("🔍 Extracting tables from PDF... Please wait.")
-            table_progress = st.progress(0)
+                tables = []
+                with pdfplumber.open(pdf_file) as pdf:
+                    total_pages = len(pdf.pages)
+                    for i, page in enumerate(pdf.pages):
+                        for table in page.extract_tables():
+                            tables.append(pd.DataFrame(table))
+                        table_progress.progress((i + 1) / total_pages)
 
-            tables = []
-            with pdfplumber.open(pdf_file) as pdf:
-                total_pages = len(pdf.pages)
-                for i, page in enumerate(pdf.pages):
-                    for table in page.extract_tables():
-                        tables.append(pd.DataFrame(table))
-                    table_progress.progress((i + 1) / total_pages)
-
-            table_progress.empty()
-            st.session_state["extracted_tables"] = tables
-            st.success("✅ Table extraction complete!")
-        else:
-            tables = st.session_state["extracted_tables"]
+                table_progress.empty()
+                st.session_state["extracted_tables"] = tables
+                st.success("✅ Table extraction complete!")
+            else:
+                tables = st.session_state["extracted_tables"]
 
         # If tables exist, convert to text and append to full_text
         if tables:
@@ -159,6 +219,15 @@ def extract_rules_from_pdf(pdf_file, df):
             progress_bar = st.progress(0)  # Initialize progress bar
             batch_size = 1  # Process 3 chunks at a time
             batched_chunks = [retrieved_texts[i:i + batch_size] for i in range(0, len(retrieved_texts), batch_size)]
+            col1, col2 = st.columns(2)
+
+            with col1:
+                success_box = st.empty()  # Placeholder for successful batches
+
+            with col2:
+                error_box = st.empty()  # Placeholder for failed batches
+                success_count = 0
+                error_count = 0
             for i, batch in enumerate(batched_chunks):
 
                 # Construct LLM Prompt
@@ -204,12 +273,16 @@ def extract_rules_from_pdf(pdf_file, df):
                     else:
                         raw_response = fix_truncated_json(raw_response)
                         batch_rules = json.loads(raw_response)
+                    success_count+=1
                     extracted_rules.extend(batch_rules)  # Append to final list
                 except json.JSONDecodeError:
+                    error_count+=1
                     print(response.content[7:-3])
                     st.error(f"❌ Error parsing response for batch {i + 1}. Skipping.")
 
                 progress_bar.progress((i + 1) / len(batched_chunks))
+                success_box.success(f"**Successful Batches**                             {success_count}")
+                error_box.error(f"**Failed Batches**                                     {error_count}")
             st.session_state["extracted_rules"] = extracted_rules  # ✅ Store rules in session
             st.success("✅ Rule extraction completed!")
             progress_bar.empty()  # Remove progress bar after completion
@@ -220,9 +293,35 @@ def extract_rules_from_pdf(pdf_file, df):
             with open(rules_json_path, "w") as f:
                 json.dump(extracted_rules, f, indent=4)
 
-            st.success("✅ Rules extracted successfully!")
-            st.json(extracted_rules)
+            if extracted_rules:
+                rules_df = pd.DataFrame(extracted_rules)
 
-            # Provide download button
-            st.download_button("📥 Download Rules JSON", data=json.dumps(extracted_rules, indent=4),
+                # Display formatted DataFrame in an expandable section
+
+                display_styled_dataframe(rules_df)
+
+                # Allow downloading the extracted rules in CSV format
+                csv = rules_df.to_csv(index=False).encode("utf-8")
+                st.markdown(
+                    """
+                    <style>
+                        .right-align {
+                            display: flex;
+                            justify-content: flex-end;
+                            padding: 10px;
+                        }
+                    </style>
+                    <div class="right-align">
+                    """,
+                    unsafe_allow_html=True
+                )
+                st.download_button("📥 Download Extracted Rules (CSV)", data=csv, file_name="extracted_rules.csv",
+                                       mime="text/csv")
+                st.markdown("</div>", unsafe_allow_html=True)
+
+                # Provide JSON Download as well
+                st.download_button("📥 Download Extracted Rules JSON", data=json.dumps(extracted_rules, indent=4),
                                    file_name="refined_validation_rules.json", mime="application/json")
+            else:
+                st.warning("⚠️ No rules extracted. Please try again.")
+
