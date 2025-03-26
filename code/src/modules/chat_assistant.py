@@ -20,26 +20,12 @@ embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_a
 
 
 def chat_load_data():
-    st.title("💬 Compliance Chat Assistant")
-
-    st.markdown("""
-        ### 🤖 AI-Powered Financial Compliance Chat  
-        This interactive **Compliance Chat Assistant** helps analyze validation issues and refine **regulatory rules**.
-
-        **What You Can Do Here:**
-        
-        💬 Ask about **validation errors** and why they occurred.  
-        📖 Get **rule refinement suggestions** for dataset compliance.  
-        ✅ Receive **explanations & recommended fixes** for violations.  
-
-        ### 🚀 Why Use This?
-        ✅ **Instant AI-powered compliance guidance**.  
-        ✅ **Clarifies errors with structured explanations**.  
-        ✅ **Enhances dataset accuracy and compliance understanding**.  
-        """)
-
-    validation_rules_file = st.file_uploader("📂 Upload Extracted Rules JSON for the chat assistant", type=["json"])
-    extracted_violation_file = st.file_uploader("📂 Upload Extracted violations JSON for the chat assistant", type=["json"])
+    st.image("./image/chat_assistant.png")
+    col1, col2 = st.columns(2)
+    with col1:
+        validation_rules_file = st.file_uploader("📂 Upload Extracted Rules JSON for the chat assistant", type=["json"])
+    with col2:
+        extracted_violation_file = st.file_uploader("📂 Upload Extracted violations JSON for the chat assistant", type=["json"])
 
     if validation_rules_file is not None and extracted_violation_file is not None:
         chat_ui(validation_rules_file,extracted_violation_file)
@@ -59,7 +45,7 @@ def chat_ui(extracted_rules_json, violated_rules_json):
     for message in st.session_state.messages:
         role, content = message["role"], message["content"]
         align = "flex-end" if role == "user" else "flex-start"
-        bg_color = "#1F7A8C" if role == "user" else "#3A3A3A"
+        bg_color = "#CB6CE6" if role == "user" else "#3A3A3A"
 
         st.markdown(
             f"""
