@@ -182,6 +182,7 @@ def extract_rules_from_pdf(pdf_file, df):
                     
                     *NEW RULE EXTRACTION:**
                     - Generate only new rules that do not match any descriptions or conditions of the same column name in the existing rules above.
+                    - For any flag based column_names , the value "Yes" can be considered the same as "true" and the value "No" can be considered the same as false
                     - The total number of generated rules in the extracted rules should be atleast more than 50 percent of the number of columns in the dataset : {len(df.columns.tolist())} 
                     - The rules can be divided if there are too many columns under the same rule
                     - Ensure uniqueness and do not duplicate existing validation logic.

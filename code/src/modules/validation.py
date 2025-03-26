@@ -111,7 +111,9 @@ def validate_dataset(df, validation_rules):
             Return the validation results in structured JSON format with:
             - "errors": A list of validation errors  (rule_id, row_no, column_name, severity, error_description (need to be very clear) , suggestion_to_fix (a short suggestion to fix the issue))
             
+
             ⚠️ **IMPORTANT INSTRUCTIONS:**
+                - Generate only new Violation that do not match any error_description and column values if its already generated in the response.
                 - Ensure the response is **valid JSON** with **NO extra text** before or after.
                 - Do NOT reset row numbers in each batch.
                 - If the JSON is **too large**, do NOT send an **incomplete JSON**.
