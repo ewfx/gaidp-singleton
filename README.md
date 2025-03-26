@@ -150,24 +150,34 @@ This AI-powered **Data Profiling & Compliance Assistant** follows a structured *
 
 #### 1️⃣ **Rule Extraction (AI-Powered Regulatory Rule Extraction)**
 
-  ![image](https://github.com/user-attachments/assets/2c410a18-90dc-46f8-8f1b-7da471c589c6)
-  ![image](https://github.com/user-attachments/assets/29ddeed9-78c0-43f5-8fe3-d9bb9c5d6dd3)
+![Rule Extraction_1](https://github.com/user-attachments/assets/64a20486-e0ef-4eda-a48a-fb02348c65d6)
+![Rule Extraction_2](https://github.com/user-attachments/assets/4bf91323-0cd7-4679-8df2-7f59cdd9edd8)
+![Rule Extraction_3](https://github.com/user-attachments/assets/c45a3e4a-fbb5-40bb-ba75-a1fcc333cae4)
+![Rule Extraction_4](https://github.com/user-attachments/assets/28b08843-3f15-4108-8495-807864c594c3)
 
 #### 2️⃣ **Dataset Validation (Automated Compliance Checking)**
-
-  ![image](https://github.com/user-attachments/assets/b78dd3e2-f67d-460b-ad2e-3333ed5f67d3)
-  ![image](https://github.com/user-attachments/assets/94d14a03-c6ae-403f-9be5-bf7a9818352f)
+![data_validation_1](https://github.com/user-attachments/assets/6fe01f3e-42f3-40f6-a21c-a29073eb4514)
+![data_validation_2](https://github.com/user-attachments/assets/16d85ba2-d766-4d95-ba94-a01e2b171e4e)
+![data_validation_3](https://github.com/user-attachments/assets/a2b06c8e-7147-48b4-89cc-cd0836bee080)
 
 #### 3️⃣ **Compliance Chat Assistant (Interactive AI-Powered Queries)**
 
-  ![image](https://github.com/user-attachments/assets/4d6b9213-85c1-48c6-8c69-db0f9db74bac)
-  ![image](https://github.com/user-attachments/assets/bfc6db4d-60bc-4b79-88ff-fc8d9c829e4c)
+![chat_assistant_1](https://github.com/user-attachments/assets/b3bffc32-9280-425f-9151-b1272968ac99)
+![chat_assistant_2](https://github.com/user-attachments/assets/210d3dc8-d358-4345-bc93-ebaa2373336f)
+![chat_assistant_3](https://github.com/user-attachments/assets/144ccef2-8828-446d-a8b3-56d83a0c4105)
 
 #### #️⃣ **Anomaly Detection (Machine Learning-Based Outlier Detection)**
 
-  ![image](https://github.com/user-attachments/assets/7d40ddae-e296-4589-ad64-51017626cf64)
-  ![image](https://github.com/user-attachments/assets/3848708a-09d6-4ef3-8033-147684d1c573)
-  ![image](https://github.com/user-attachments/assets/9c121c95-d5d1-4f1d-80c8-2ef5c6e3d525)
+![anomaly_detection_1](https://github.com/user-attachments/assets/0b6733dc-6cd0-471b-952f-706ec7cf9aa9)
+![anomaly_detection_2](https://github.com/user-attachments/assets/89549c64-8211-4d45-9c26-c0d441062169)
+![anomaly_detection_3](https://github.com/user-attachments/assets/8da9ccfc-1fdd-41da-ba4b-6158379a6fc0)
+![anomaly_detection_4](https://github.com/user-attachments/assets/fdf0687d-3b39-4548-9ecf-b20a50f3ba3a)
+
+
+
+
+
+
   
 
 ## 🏗️ Tech Stack
