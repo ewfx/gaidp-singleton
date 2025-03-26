@@ -27,6 +27,7 @@ def chat_load_data():
         This interactive **Compliance Chat Assistant** helps analyze validation issues and refine **regulatory rules**.
 
         **What You Can Do Here:**
+        
         💬 Ask about **validation errors** and why they occurred.  
         📖 Get **rule refinement suggestions** for dataset compliance.  
         ✅ Receive **explanations & recommended fixes** for violations.  

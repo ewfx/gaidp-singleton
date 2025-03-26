@@ -139,6 +139,7 @@ def main():
     This module applies **Machine Learning (ML) techniques** to detect anomalies in financial data.
 
     **How It Works:**
+    
     1️⃣ Upload your **dataset (CSV)**.  
     2️⃣ An anomaly detection model Isolation Forest is used for large data efficiency.  
     3️⃣ AI highlights **unusual data points (outliers)**.  

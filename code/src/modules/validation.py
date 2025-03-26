@@ -28,6 +28,7 @@ def validation_load_data():
        This module **automatically validates** uploaded datasets against extracted **regulatory validation rules**.
 
        **How It Works:**
+       
        1️⃣ Upload your **dataset (CSV)** and **validation rules (JSON)**.  
        2️⃣ AI-powered validation engine checks compliance.  
        3️⃣ Generates a **detailed validation report** highlighting rule violations.  

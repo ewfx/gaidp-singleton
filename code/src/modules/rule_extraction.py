@@ -34,7 +34,7 @@ def rules_extract_data():
 
         **How It Works:**
         
-        1️⃣ Upload a **regulatory PDF**.  
+        1️⃣ Upload a **regulatory PDF** and the **Dataset** that you plan on validating.  
         2️⃣ AI extracts **structured validation rules** from relevant sections.  
         3️⃣ Rules are formatted as **JSON** for easy validation against datasets.  
         4️⃣ Download extracted rules for further processing.  
