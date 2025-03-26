@@ -25,6 +25,8 @@ chat_model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOO
 
 # Load dataset
 def load_data():
+    st.image("./image/anomaly_detection.png")
+
     uploaded_file = st.file_uploader("📂 Upload dataset for anomaly detection", type=["csv"])
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
@@ -132,24 +134,7 @@ def generate_anomaly_explanations(anomalies):
 
 # Streamlit UI
 def main():
-    st.title("📉 AI-Powered Anomaly Detection")
 
-    st.markdown("""
-    ### 🔎 Detect Outliers in Your Dataset  
-    This module applies **Machine Learning (ML) techniques** to detect anomalies in financial data.
-
-    **How It Works:**
-    
-    1️⃣ Upload your **dataset (CSV)**.  
-    2️⃣ An anomaly detection model Isolation Forest is used for large data efficiency.  
-    3️⃣ AI highlights **unusual data points (outliers)**.  
-    4️⃣ View **interactive visualizations** and download anomaly reports.  
-
-    ### 🚀 Why Use This?
-    ✅ **Identifies inconsistencies & fraud detection**.  
-    ✅ **Enhances data quality & regulatory reporting**.  
-    ✅ **Provides clear anomaly explanations via AI insights**.  
-    """)
     df = load_data()
 
     if df is not None:
@@ -191,7 +176,7 @@ def main():
                             column = explanation.get("column", "Unknown Column")
                             reason = explanation.get("reason", "No explanation available.")
 
-                            st.write(f"- **Row {row_no} | Column:** {column}")
+                            st.write(f"- **Row {row_no} | Column:** {column}\n")
                             st.write(f"  - 📝 **Reason:** {reason}")
                             st.markdown("---")  # Separator for readability
 
