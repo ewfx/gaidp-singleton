@@ -143,7 +143,7 @@ This AI-powered **Data Profiling & Compliance Assistant** follows a structured *
 
 ## 🏗️ Tech Stack
 
-- **Backend:** Python, Flask, LangChain, Pandas
+- **Backend:** Python, LangChain, Pandas
 - **Frontend:** Streamlit, Plotly, Altair
 - **AI Models:** Google Gemini (LLM), Isolation Forest (ML - Z Score, Percentile Cutoff)
 - **Database:** ChromaDB, FAISS for Vector Storage
