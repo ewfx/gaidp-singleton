@@ -23,25 +23,13 @@ chat = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GOOGLE_AP
 batch_size = 10
 
 def validation_load_data():
-    st.markdown("""
-       ### ✅ Validate Your Dataset Against Compliance Rules  
-       This module **automatically validates** uploaded datasets against extracted **regulatory validation rules**.
+    st.image("./image/data_validation.png")
+    col1, col2 = st.columns(2)
 
-       **How It Works:**
-       
-       1️⃣ Upload your **dataset (CSV)** and **validation rules (JSON)**.  
-       2️⃣ AI-powered validation engine checks compliance.  
-       3️⃣ Generates a **detailed validation report** highlighting rule violations.  
-       4️⃣ Download validation errors and suggestions in a structured format.  
-
-       ### 🚀 Why Use This?
-       ✅ **Ensures data accuracy** and consistency.  
-       ✅ **Detects missing values, format issues, and rule violations**.  
-       ✅ **Generates compliance-friendly reports** for easy correction.  
-       """)
-
-    extracted_rules_file = st.file_uploader("📂 Upload the extracted validation rules JSON", type=["json"])
-    dataset_file = st.file_uploader("📂 Upload Dataset (CSV)", type=["csv"])
+    with col1:
+        extracted_rules_file = st.file_uploader("📂 Upload the extracted validation rules JSON", type=["json"])
+    with col2:
+        dataset_file = st.file_uploader("📂 Upload Dataset (CSV)", type=["csv"])
     if extracted_rules_file is not None and dataset_file is not None:
         validate_dataset(dataset_file, extracted_rules_file)
     return None
@@ -92,6 +80,12 @@ def validate_dataset(df, validation_rules):
 
         # Show processing status
         status_box = st.empty()
+        col1, col2 = st.columns(2)
+        with col1:
+            success_box = st.empty()  # Placeholder for successful batches
+
+        with col2:
+            error_box = st.empty()  # Placeholder for failed batches
 
         # Start batch processing
         for i in tqdm(range(0, len(df), batch_size), desc="Processing Batches", unit="batch"):
@@ -155,13 +149,13 @@ def validate_dataset(df, validation_rules):
                 status_box.error(f"❌ Error parsing response for batch {i}-{i + batch_size}. Skipping.")
             except Exception as e:
                 status_box.error(f"❌ Unexpected error in batch {i}-{i + batch_size}: {e}")
+            success_box.success(f"**Successful Batches**                             {success_count}")
+            error_box.error(f"**Failed Batches**                                     {error_count}")
             progress_bar.progress((i + batch_size) / len(df))
         st.session_state["validation_results"] = all_results
         st.session_state["validation_completed"] = True  # ✅ Mark as completed
 
         st.subheader("📌 Validation Summary")
-        st.write(f"✅ **Successful Batches:** {success_count}")
-        st.write(f"❌ **Failed Batches:** {error_count}")
 
         save_dir = "./data/output"
         os.makedirs(save_dir, exist_ok=True)
@@ -178,11 +172,20 @@ def validate_dataset(df, validation_rules):
         # 📌 Display Validation Errors
         if st.session_state.validation_results["errors"]:
         # Display results in expandable sections
-            with st.expander("🚨 Validation Errors"):
-                errors_df = pd.DataFrame(all_results["errors"])
-                st.dataframe(errors_df)
-                csv = errors_df.to_csv(index=False).encode("utf-8")
-                st.download_button("📥 Download Validation Errors", data=csv, file_name="validation_errors.csv",
+            errors_df = pd.DataFrame(all_results["errors"])
+
+            # Apply conditional formatting to highlight errors
+            def highlight_errors(val):
+                return 'background-color: #ffcccc; color: black;' if isinstance(val, str) else ''
+
+            styled_df = errors_df.style.applymap(highlight_errors)
+
+            # Use `st.dataframe()` with optimized size
+            st.dataframe(styled_df, height=600, width=1200)
+
+            # Convert to CSV & Provide Download Option
+            csv = errors_df.to_csv(index=False).encode("utf-8")
+            st.download_button("📥 Download Validation Errors", data=csv, file_name="validation_errors.csv",
                                    mime="text/csv")
         else:
             st.success("🎉 No validation errors found!")
