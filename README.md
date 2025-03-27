@@ -101,6 +101,8 @@ api_key = "YOUR_ACTUAL_API_KEY"
 
 5️⃣ **Run the Streamlit app**:  
 ```bash
+ cd code
+ cd src
  streamlit run app.py
 ```
 
@@ -185,9 +187,9 @@ This AI-powered **Data Profiling & Compliance Assistant** follows a structured *
 
 ## 🏗️ Tech Stack
 
-- **Backend:** Python, LangChain, Pandas
+- **Backend:** Python, LangChain, Pandas, Scikit
 - **Frontend:** Streamlit, Plotly, Altair
-- **AI Models:** Google Gemini (LLM), Isolation Forest (ML - Z Score, Percentile Cutoff)
+- **AI/ML Models:** Google Gemini (LLM), Isolation Forest (ML - Z Score, Percentile Cutoff)
 - **Database:** ChromaDB, FAISS for Vector Storage
 
 ---
