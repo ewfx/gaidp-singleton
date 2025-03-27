@@ -72,30 +72,6 @@ def display_styled_dataframe(df):
         unsafe_allow_html=True,
     )
 
-    # Circular Progress Bar CSS
-    circle_progress_css = """
-    <style>
-        .progress-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px;
-        }
-        .progress-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 8px solid #ddd;
-            border-top-color: #1f77b4;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-    </style>
-    """
-    st.markdown(circle_progress_css, unsafe_allow_html=True)
 
 
 
