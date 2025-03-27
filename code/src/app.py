@@ -8,9 +8,6 @@ from modules.anomaly_detection import main
 # from modules.machine_learning.clustering import clustering_main
 
 
-# ✅ Permanent Fix for AsyncIO on Windows
-if sys.platform == "win32":
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 st.set_page_config(layout="wide")
 st.markdown(
